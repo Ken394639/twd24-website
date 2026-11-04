@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>圖表方向 · 荃灣第二十四旅</title>
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 28px; margin-top: 8px; }
+.choice h2 { margin: 0 0 6px; font-size: 18px; }
+.choice .why { margin: 0 0 8px; color: #444; font-size: 15px; }
+.choice svg { width: 100%; height: auto; display: block; }
+.choice .skill-chart { max-width: none; margin: 0; }
+.bars { display: grid; gap: 8px; margin: 18px 0 8px; }
+.bar-row { display: grid; grid-template-columns: 3em 1fr 2em; gap: 8px; align-items: center; font-size: 15px; }
+.bar-track { height: 12px; background: #e7eef6; }
+.bar-fill { display: block; height: 12px; width: 100%; background: #0e6abd; }
+.plain-list { margin: 16px 0 8px; padding: 0; list-style: none; }
+.plain-list li { display: flex; justify-content: space-between; max-width: 220px; padding: 6px 0; border-bottom: 1px solid #e5e5e5; }
+@media (max-width: 700px) {
+  .choices { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳至主要內容</a>
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="leaders.html">
+      <img class="logo" src="images/logo.png" alt="荃灣第二十四旅標誌">
+      <span><strong>荃灣第二十四旅</strong><small>圖表方向，只供挑選</small></span>
+    </a>
+  </div>
+  <div class="stripe"></div>
+</header>
+<main id="main" class="page">
+  <h1>先選方向</h1>
+  <p>每張都是同一組能力，六項都是滿。現在領袖頁用的是第 1 種，先留着。你回我編號即可，線條粗幼和字之後再收。</p>
+  <p class="note">這頁沒有放進選單。第 8 張有一項畫出外圈，只是示範畫法，不是任何一位領袖的分數。</p>
+  <div class="choices">
+    <section class="choice" id="c1">
+      <h2>1. Chart.js</h2>
+      <p class="why">很多普通網站用的雷達圖。現在領袖頁就是這一種。</p>
+      <div class="skill-chart">
+        <canvas class="skill-radar" data-skills="1 1 1 1 1 1" aria-label="Chart.js 雷達圖，六項都是滿值。"></canvas>
+      </div>
+    </section>
+    <section class="choice" id="c2">
+      <h2>2. 白底細線</h2>
+      <p class="why">最早那版的方向。線幼、顏色淡，接近表格。</p>
+      <svg viewBox="0 0 360 360" role="img" aria-label="白底細線雷達圖，六項都是滿值。" data-draw="thin" data-skills="1 1 1 1 1 1"></svg>
+    </section>
+    <section class="choice" id="c3">
+      <h2>3. 青色、虛線格</h2>
+      <p class="why">你給的轉播圖那種青色，放在本站白底上。</p>
+      <svg viewBox="0 0 360 360" role="img" aria-label="青色虛線格雷達圖，六項都是滿值。" data-draw="cyan" data-skills="1 1 1 1 1 1"></svg>
+    </section>
+    <section class="choice" id="c4">
+      <h2>4. 本旅藍、虛線格</h2>
+      <p class="why">和第 3 種同一種格子，顏色改成網頁頂部那條藍。</p>
+      <svg viewBox="0 0 360 360" role="img" aria-label="本旅藍虛線格雷達圖，六項都是滿值。" data-draw="site" data-skills="1 1 1 1 1 1"></svg>
+    </section>
+    <section class="choice" id="c5">
+      <h2>5. 只有線</h2>
+      <p class="why">不填顏色，只留六角形的邊。看起來比較靜。</p>
+      <svg viewBox="0 0 360 360" role="img" aria-label="只有線的雷達圖，六項都是滿值。" data-draw="line" data-skills="1 1 1 1 1 1"></svg>
+    </section>
+    <section class="choice" id="c6">
+      <h2>6. 橫條</h2>
+      <p class="why">不用雷達。六項各一條，全部拉到滿。</p>
+      <div class="bars" aria-label="橫條圖，六項都是滿值。">
+        <div class="bar-row"><span>陪伴</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
+        <div class="bar-row"><span>帶領</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
+        <div class="bar-row"><span>技能</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
+        <div class="bar-row"><span>服務</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
+        <div class="bar-row"><span>照顧</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
+        <div class="bar-row"><span>籌劃</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
+      </div>
+    </section>
+    <section class="choice" id="c7">
+      <h2>7. 只寫文字</h2>
+      <p class="why">沒有圖。和介紹文字放在一起，最不像遊戲畫面。</p>
+      <ul class="plain-list">
+        <li><span>陪伴</span><span>滿</span></li>
+        <li><span>帶領</span><span>滿</span></li>
+        <li><span>技能</span><span>滿</span></li>
+        <li><span>服務</span><span>滿</span></li>
+        <li><span>照顧</span><span>滿</span></li>
+        <li><span>籌劃</span><span>滿</span></li>
+      </ul>
+    </section>
+    <section class="choice" id="c8">
+      <h2>8. 一項畫出外圈</h2>
+      <p class="why">畫法同第 4 種。帶領畫出外圈，只示範「特別強」可以怎樣畫。不是某人的分數。</p>
+      <svg viewBox="0 0 360 360" role="img" aria-label="示範：帶領畫出滿值外圈，其餘五項是滿值。不是任何一位領袖的分數。" data-draw="site" data-skills="1 1.28 1 1 1 1"></svg>
+    </section>
+  </div>
+  <p><a href="leaders.html">返回旅團領袖</a></p>
+</main>
+<script src="js/chart.umd.min.js"></script>
+<script>
+new Chart(document.querySelector("canvas.skill-radar"), {
+  type: "radar",
+  data: {
+    labels: ["陪伴", "帶領", "技能", "服務", "照顧", "籌劃"],
+    datasets: [{
+      data: [1, 1, 1, 1, 1, 1],
+      fill: true,
+      backgroundColor: "rgba(54, 162, 235, 0.2)",
+      borderColor: "rgb(54, 162, 235)",
+      pointBackgroundColor: "rgb(54, 162, 235)",
+      pointBorderColor: "#fff",
+      borderWidth: 2,
+      pointRadius: 3
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+    scales: { r: { min: 0, max: 1, ticks: { display: false } } }
+  }
+});
+</script>
+<script>
+(function () {
+  var labels = ["陪伴", "帶領", "技能", "服務", "照顧", "籌劃"];
+  var cx = 180;
+  var cy = 180;
+  var radius = 96;
+  function xy(i, scale) {
+    var a = -Math.PI / 2 + (i * Math.PI) / 3;
+    return [cx + Math.cos(a) * radius * scale, cy + Math.sin(a) * radius * scale];
+  }
+  function pts(scales) {
+    return scales.map(function (s, i) {
+      return xy(i, s).map(function (n) { return n.toFixed(1); }).join(",");
+    }).join(" ");
+  }
+  function ring(scale, attrs) {
+    return '<polygon points="' + pts([scale, scale, scale, scale, scale, scale]) + '" fill="none" ' + attrs + '/>';
+  }
+  function spokes(attrs, reach) {
+    var html = "";
+    for (var i = 0; i < 6; i++) {
+      var p = xy(i, reach || 1);
+      html += '<line x1="' + cx + '" y1="' + cy + '" x2="' + p[0].toFixed(1) + '" y2="' + p[1].toFixed(1) + '" ' + attrs + '/>';
+    }
+    return html;
+  }
+  function dots(scales, fill, r) {
+    return scales.map(function (s, i) {
+      var p = xy(i, s);
+      return '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="' + r + '" fill="' + fill + '"/>';
+    }).join("");
+  }
+  function texts() {
+    return labels.map(function (name, i) {
+      var p = xy(i, 1.5);
+      return '<text x="' + p[0].toFixed(1) + '" y="' + p[1].toFixed(1) + '" text-anchor="middle" dominant-baseline="middle" font-size="15" fill="#333" font-family="Microsoft JhengHei, PingFang TC, sans-serif">' + name + '</text>';
+    }).join("");
+  }
+  var styles = {
+    thin: function (values) {
+      return spokes('stroke="#e6e6e6" stroke-width="1"')
+        + ring(0.33, 'stroke="#dddddd" stroke-width="1"')
+        + ring(0.66, 'stroke="#dddddd" stroke-width="1"')
+        + ring(1, 'stroke="#bdbdbd" stroke-width="1.25"')
+        + '<polygon points="' + pts(values) + '" fill="rgba(80,80,80,0.06)" stroke="#666" stroke-width="1.25"/>'
+        + dots(values, "#666", 2)
+        + texts();
+    },
+    cyan: function (values) {
+      return spokes('stroke="#d5e1ec" stroke-width="1"')
+        + ring(0.25, 'stroke="#c5d3e2" stroke-width="1" stroke-dasharray="4 4"')
+        + ring(0.5, 'stroke="#c5d3e2" stroke-width="1" stroke-dasharray="4 4"')
+        + ring(0.75, 'stroke="#c5d3e2" stroke-width="1" stroke-dasharray="4 4"')
+        + ring(1, 'stroke="#7aa4c4" stroke-width="1.6"')
+        + '<polygon points="' + pts(values) + '" fill="rgba(46,196,198,0.42)" stroke="#1497a8" stroke-width="2"/>'
+        + dots(values, "#1497a8", 3.5)
+        + texts();
+    },
+    site: function (values) {
+      return spokes('stroke="#d5e3f2" stroke-width="1"')
+        + ring(0.25, 'stroke="#c5d6ea" stroke-width="1" stroke-dasharray="4 4"')
+        + ring(0.5, 'stroke="#c5d6ea" stroke-width="1" stroke-dasharray="4 4"')
+        + ring(0.75, 'stroke="#c5d6ea" stroke-width="1" stroke-dasharray="4 4"')
+        + ring(1, 'stroke="#0e6abd" stroke-width="1.6"')
+        + '<polygon points="' + pts(values) + '" fill="rgba(14,106,189,0.22)" stroke="#0e6abd" stroke-width="2"/>'
+        + dots(values, "#0e6abd", 3.5)
+        + texts();
+    },
+    line: function (values) {
+      return spokes('stroke="#ececec" stroke-width="1"')
+        + ring(0.5, 'stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3 4"')
+        + ring(1, 'stroke="#d0d0d0" stroke-width="1"')
+        + '<polygon points="' + pts(values) + '" fill="none" stroke="#0e6abd" stroke-width="1.75"/>'
+        + dots(values, "#0e6abd", 3)
+        + texts();
+    }
+  };
+  document.querySelectorAll("svg[data-draw]").forEach(function (svg) {
+    var values = svg.getAttribute("data-skills").trim().split(/\s+/).map(Number);
+    svg.innerHTML = styles[svg.getAttribute("data-draw")](values);
+  });
+})();
+</script>
+</body>
+</html>

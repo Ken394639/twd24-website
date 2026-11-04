@@ -18,34 +18,44 @@ const setNavOpen = (open) => {
   fitNav();
 };
 if (toggle && nav) {
+  const clearNested = (root) => {
+    root.querySelectorAll(".has-sub.is-open").forEach((item) => item.classList.remove("is-open"));
+  };
   toggle.addEventListener("click", () => {
     setNavOpen(!nav.classList.contains("is-open"));
   });
   nav.querySelectorAll(".has-sub > a").forEach((link) => {
     link.addEventListener("click", (event) => {
-      if (!narrow()) return;
-      event.preventDefault();
       const item = link.parentElement;
+      const nested = item.parentElement.classList.contains("sub");
+      if (!narrow() && !nested) return;
+      event.preventDefault();
       const willOpen = !item.classList.contains("is-open");
       item.parentElement.querySelectorAll(":scope > .has-sub.is-open").forEach((openItem) => {
         if (openItem === item) return;
         openItem.classList.remove("is-open");
-        openItem.querySelectorAll(".has-sub.is-open").forEach((child) => child.classList.remove("is-open"));
+        clearNested(openItem);
       });
-      if (!willOpen) item.querySelectorAll(".has-sub.is-open").forEach((child) => child.classList.remove("is-open"));
+      if (!willOpen) clearNested(item);
       item.classList.toggle("is-open", willOpen);
-      if (!willOpen) return;
+      if (!willOpen || !narrow() || !nav.classList.contains("is-open")) return;
       requestAnimationFrame(() => {
         const delta = link.getBoundingClientRect().top - nav.getBoundingClientRect().top;
         nav.scrollTo({ top: nav.scrollTop + delta, behavior: "smooth" });
       });
     });
   });
+  nav.querySelectorAll(":scope > ul > .has-sub").forEach((item) => {
+    item.addEventListener("mouseleave", () => {
+      if (narrow()) return;
+      clearNested(item);
+    });
+  });
   nav.querySelectorAll(".sub a").forEach((link) => {
     link.addEventListener("click", () => {
-      if (!narrow()) return;
       if (link.parentElement.classList.contains("has-sub")) return;
-      setNavOpen(false);
+      if (narrow()) setNavOpen(false);
+      else clearNested(nav);
     });
   });
   window.addEventListener("resize", () => {
@@ -117,17 +127,25 @@ if (filterBar) {
       const on = blockOn(name);
       block.classList.toggle("is-on", on);
       let count = 0;
-      block.querySelectorAll("tbody tr").forEach((row, index) => {
-        let ok = !year || row.dataset.year === year;
+      const cards = block.querySelectorAll(".album-card");
+      const rows = block.querySelectorAll("tbody tr");
+      const items = cards.length ? cards : rows;
+      items.forEach((item, index) => {
+        let ok = !year || item.dataset.year === year;
         if (section) {
-          ok = ok && (row.dataset.sections || "").split(" ").includes(section);
+          ok = ok && (item.dataset.sections || "").split(" ").includes(section);
         }
         if (name === "social" && category !== "all" && category !== "social") {
-          ok = ok && row.dataset.cat === category;
+          ok = ok && item.dataset.cat === category;
         }
-        row.hidden = !ok;
-        if (!ok) return;
-        row.classList.toggle("is-odd", count % 2 === 1);
+        if (item.classList.contains("album-card")) {
+          item.dataset.filterHide = ok ? "" : "1";
+          item.hidden = item.dataset.searchHide === "1" || item.dataset.filterHide === "1";
+        } else {
+          item.hidden = !ok;
+          if (ok) item.classList.toggle("is-odd", count % 2 === 1);
+        }
+        if (!ok || item.hidden) return;
         count += 1;
       });
       const heading = block.querySelector("h2");
@@ -269,12 +287,17 @@ const marks = {
   threads: '<svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16.7 11.1c-.1-2.6-1.5-4.3-4.2-4.4-2.3-.1-3.8 1.1-4.4 3.2l1.9.4c.3-1.2 1-2 2.4-1.9 1.6.1 2.4 1 2.5 2.7-.7-.3-1.6-.5-2.5-.5-2.4 0-4 1.4-4 3.6s1.5 3.4 3.6 3.4c1.8 0 3.1-.8 3.7-2.4.4 1.4 1.3 2.1 2.7 2.1 1.2 0 2-.7 2-1.8 0-.2 0-.4-.1-.6 1 .4 1.6 1.2 1.6 2.4 0 1.8-1.6 3.2-4.1 3.2-2.8 0-4.6-1.6-5-3.8-2.2-.3-3.7-1.8-3.7-4s2.1-4.6 5.2-4.6c2.7 0 4.5 1.5 4.9 3.7h-2.5zm-1.2 3.1c-.5 1.1-1.4 1.6-2.6 1.6-1.2 0-2-.7-2-1.7s.8-1.7 2.1-1.7c.8 0 1.6.1 2.3.4.1.4.2.9.2 1.4z"/></svg>',
   flickr: '<svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="7.1" cy="12" r="3.15" fill="currentColor"/><circle cx="16.9" cy="12" r="3.15" fill="currentColor"/></svg>',
   linktree: '<svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M10.6 2h2.8v6.2H17v2.8h-3.6V22h-2.8v-11H7V8.2h3.6V2z"/></svg>',
-  mail: '<svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5.2" width="18" height="13.6" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 7.2 12 13l8-5.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>'
+  mail: '<svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5.2" width="18" height="13.6" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 7.2 12 13l8-5.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+  phone: '<svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M7.2 3.8h3.1l1.2 3.2-1.7 1.2a11.5 11.5 0 0 0 5 5l1.2-1.7 3.2 1.2v3.1a1.4 1.4 0 0 1-1.5 1.5A14.7 14.7 0 0 1 3.7 5.3a1.4 1.4 0 0 1 1.5-1.5z"/></svg>',
+  map: '<svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 21s6.2-5.4 6.2-10.2A6.2 6.2 0 0 0 12 4.6a6.2 6.2 0 0 0-6.2 6.2C5.8 15.6 12 21 12 21z"/><circle cx="12" cy="10.8" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+  file: '<svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M7 3.5h7l4 4V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M14 3.5V8h4.5"/></svg>',
+  external: '<svg class="mark mark-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M14 5h5v5M19 5l-9 9"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M10 5H6.5A1.5 1.5 0 0 0 5 6.5v11A1.5 1.5 0 0 0 6.5 19h11a1.5 1.5 0 0 0 1.5-1.5V14"/></svg>'
 };
 
 const channelOf = (href) => {
   if (!href) return "";
   if (href.startsWith("mailto:")) return "mail";
+  if (href.startsWith("tel:")) return "phone";
   let url;
   try {
     url = new URL(href, location.href);
@@ -288,12 +311,46 @@ const channelOf = (href) => {
   if ((host === "threads.com" || host === "threads.net") && path.toLowerCase() === "/@24twg") return "threads";
   if (host === "flickr.com" && /\/albums$/i.test(path)) return "flickr";
   if (host === "linktr.ee") return "linktree";
+  if (host === "maps.google.com" || ((host === "google.com" || host.endsWith(".google.com")) && path.startsWith("/maps"))) return "map";
+  if (/\.pdf($|\?)/i.test(path) || host === "drive.google.com") return "file";
+  if (url.origin !== location.origin && /^https?:$/.test(url.protocol)) return "external";
   return "";
 };
 
 document.querySelectorAll("a[href]").forEach((link) => {
-  if (link.closest("table") || link.querySelector(".mark") || link.classList.contains("btn")) return;
+  if (link.closest("table") || link.querySelector(".mark") || link.classList.contains("btn") || link.classList.contains("join")) return;
+  if (link.closest(".nav") || link.closest(".crumbs")) return;
   const kind = channelOf(link.getAttribute("href"));
   if (!marks[kind]) return;
-  link.insertAdjacentHTML("afterbegin", marks[kind]);
+  if (kind === "external" || kind === "file" || kind === "map") {
+    link.insertAdjacentHTML("beforeend", " " + marks[kind]);
+  } else {
+    link.insertAdjacentHTML("afterbegin", marks[kind]);
+  }
 });
+
+document.querySelectorAll("main.page > p").forEach((p) => {
+  if (p.textContent.trim() === "尚未寫上。") p.classList.add("empty-note");
+});
+
+const leaderTitle = document.querySelector(".leader-card h1");
+const mainPage = document.querySelector("main.page");
+if (leaderTitle && mainPage && !mainPage.querySelector(".crumbs")) {
+  const crumbs = document.createElement("nav");
+  crumbs.className = "crumbs";
+  crumbs.setAttribute("aria-label", "麵包屑");
+  const home = document.createElement("a");
+  home.href = "leaders.html";
+  home.textContent = "旅團領袖";
+  const sep = document.createElement("span");
+  sep.className = "crumbs-sep";
+  sep.setAttribute("aria-hidden", "true");
+  sep.textContent = "›";
+  const now = document.createElement("span");
+  now.className = "crumbs-now";
+  now.textContent = leaderTitle.textContent.trim();
+  crumbs.append(home, sep, now);
+  const note = mainPage.querySelector(":scope > .note");
+  if (note) note.insertAdjacentElement("afterend", crumbs);
+  else mainPage.insertAdjacentElement("afterbegin", crumbs);
+}
