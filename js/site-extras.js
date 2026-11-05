@@ -1,4 +1,4 @@
-/* Leader filter, page search, activity cards — runs before nav.js filters when ordered correctly. */
+/* Leader filter, page search, activity cards. Album covers are files in images/album-covers/. */
 (function () {
   const thumbs = {
     contest: "images/act-contest.jpg",
@@ -11,6 +11,115 @@
     gathering: "images/act-bbq.jpg",
     other: "images/hero.jpg",
   };
+
+  let posterByCode = {};
+
+  const eventCover = {
+    DXzRBfokTA4: "images/album-covers/72177720333401952.jpg",
+    DUuW0wZAZBs: "images/album-covers/72177720332025238.jpg",
+    DUA2pQcDFZD: "images/album-covers/72177720331692274.jpg",
+    DJNz2guBkFi: "images/album-covers/72177720325771315.jpg",
+    DGZ1OLCykD2: "images/album-covers/72177720324010018.jpg",
+    DF7pxMpv9Lr: "images/album-covers/72177720323722391.jpg",
+    DFPkVvrBG9Y: "images/album-covers/72177720323366687.jpg",
+    DCMa_caya3K: "images/album-covers/72177720321514135.jpg",
+    "DAdd9-rNhZW": "images/album-covers/72177720321321025.jpg",
+    "C_nUTR4BrOY": "images/album-covers/72177720320049972.jpg",
+    C9mE_Ptxlgv: "images/album-covers/72177720319137436.jpg",
+    C9qs2ntJAL4: "images/album-covers/72177720318978669.jpg",
+    C7ashcMPi6v: "images/album-covers/72177720316223046.jpg",
+    C6d7UfULE8V: "images/album-covers/72177720332980912.jpg",
+    "C7ZLDbXMHw-": "images/album-covers/72177720317294556.jpg",
+    C5yPXXtrJtO: "images/album-covers/72177720316223046.jpg",
+  };
+
+  const asThumb = (path) => (
+    path && path.indexOf("images/album-covers/") === 0 && path.indexOf("/thumbs/") === -1
+      ? path.replace("images/album-covers/", "images/album-covers/thumbs/")
+      : ""
+  );
+
+  const coverFor = (href, cat) => {
+    const last = thumbs[cat] || "images/hero.jpg";
+    const album = (href || "").match(/\/albums\/(\d+)/);
+    if (album) {
+      const full = "images/album-covers/" + album[1] + ".jpg";
+      return { src: "images/album-covers/thumbs/" + album[1] + ".jpg", fallback: full, last };
+    }
+    const ig = (href || "").match(/instagram\.com\/[^/]+\/(?:p|reel)\/([^/?#]+)/i);
+    if (ig) {
+      const code = ig[1];
+      const raw = posterByCode[code] || eventCover[code] || ("images/social/post-covers/" + code + ".jpg");
+      const thumb = asThumb(raw);
+      if (thumb) return { src: thumb, fallback: raw, last };
+      return { src: raw, fallback: last, last: "" };
+    }
+    if ((href || "").indexOf("pfbid0m1LdouJGXDitHqYj8DF7mscZpHPCmw3VBHYKXRBtpStoUSU3M1NSgHSjAcpr1KTQl") !== -1) {
+      return { src: "images/social/posters/parade-2026.jpg", fallback: last, last: "" };
+    }
+    return { src: last, fallback: "", last: "" };
+  };
+
+  const bindCover = (img, cover) => {
+    const chain = [cover.src, cover.fallback, cover.last].filter((item, index, list) => item && list.indexOf(item) === index);
+    img.dataset.src = chain[0] || "";
+    img.dataset.fallbacks = chain.slice(1).join("|");
+    img.addEventListener("error", () => {
+      const rest = (img.dataset.fallbacks || "").split("|").filter(Boolean);
+      if (!rest.length) return;
+      img.dataset.fallbacks = rest.slice(1).join("|");
+      img.src = rest[0];
+    });
+  };
+
+  const BATCH = 24;
+  const albumLimits = new WeakMap();
+  const capOf = (block) => albumLimits.get(block) || BATCH;
+  const showCard = (card) => {
+    card.dataset.shown = "1";
+    const img = card.querySelector("img");
+    if (img && img.dataset.src && !img.getAttribute("src")) img.src = img.dataset.src;
+  };
+  const syncAlbums = () => {
+    document.querySelectorAll(".album-block").forEach((block) => {
+      const grid = block.querySelector(".album-cards");
+      const more = block.querySelector(".album-more");
+      if (!grid) return;
+      const cards = [...grid.querySelectorAll(".album-card")];
+      const visible = cards.filter((card) => !card.hidden);
+      const cap = capOf(block);
+      const open = block.classList.contains("is-on");
+      visible.forEach((card, index) => {
+        if (open && index < cap) showCard(card);
+        else delete card.dataset.shown;
+      });
+      cards.forEach((card) => {
+        if (card.hidden) delete card.dataset.shown;
+      });
+      if (more) more.hidden = !open || visible.length <= cap;
+    });
+  };
+  const moreAlbums = (block) => {
+    const more = block.querySelector(".album-more");
+    if (more) more.dataset.arm = "0";
+    albumLimits.set(block, capOf(block) + BATCH);
+    syncAlbums();
+  };
+  const moreWatcher = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting || entry.target.dataset.arm !== "1" || entry.target.hidden) return;
+      const block = entry.target.closest(".album-block");
+      if (!block || !block.classList.contains("is-on")) return;
+      moreAlbums(block);
+    });
+  });
+  window.addEventListener("scroll", () => {
+    document.querySelectorAll(".album-more").forEach((button) => {
+      if (button.dataset.arm === "1" || button.hidden) return;
+      const rect = button.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) button.dataset.arm = "1";
+    });
+  }, { passive: true });
 
   const toCards = () => {
     document.querySelectorAll(".album-block").forEach((block) => {
@@ -32,27 +141,40 @@
         card.dataset.year = row.dataset.year || "";
         card.dataset.sections = row.dataset.sections || "";
         card.dataset.cat = cat;
+        const label = link.textContent.trim();
         const img = document.createElement("img");
-        img.src = thumbs[cat] || "images/hero.jpg";
-        img.alt = "";
+        img.alt = label;
         img.loading = "lazy";
+        img.decoding = "async";
+        bindCover(img, coverFor(link.getAttribute("href") || "", cat));
         const body = document.createElement("div");
         body.className = "album-card-body";
         const title = document.createElement("strong");
-        title.textContent = link.textContent.trim();
+        title.textContent = label;
         const meta = document.createElement("span");
         const date = row.cells[0] ? row.cells[0].textContent.trim() : "";
-        const kind = row.cells[2] ? row.cells[2].textContent.trim() : (row.cells[1] && row.cells.length > 2 ? "" : "");
+        const kind = row.cells[2] ? row.cells[2].textContent.trim() : "";
         const platform = row.cells[3] ? row.cells[3].textContent.trim() : "";
         meta.textContent = [date, kind || platform, platform && kind ? platform : ""].filter(Boolean).join(" · ");
         body.append(title, meta);
         card.append(img, body);
         grid.appendChild(card);
       });
+      const more = document.createElement("button");
+      more.type = "button";
+      more.className = "album-more";
+      more.textContent = "再顯示";
+      more.hidden = true;
+      more.dataset.arm = "1";
+      more.addEventListener("click", () => moreAlbums(block));
       wrap.hidden = true;
       wrap.insertAdjacentElement("afterend", grid);
+      grid.insertAdjacentElement("afterend", more);
+      moreWatcher.observe(more);
     });
+    syncAlbums();
   };
+  window.siteAlbums = { sync: syncAlbums };
 
   const setupLeaderFilter = () => {
     const roster = document.querySelector(".roster");
@@ -224,12 +346,15 @@
       const q = input.value.trim().toLowerCase();
       let visible = 0;
       if (isActs) {
-        document.querySelectorAll(".album-card").forEach((card) => {
+        const cards = document.querySelectorAll(".album-card");
+        const nodes = cards.length ? cards : document.querySelectorAll(".album-block tbody tr");
+        nodes.forEach((card) => {
           const ok = !q || card.textContent.toLowerCase().includes(q);
           card.dataset.searchHide = ok ? "" : "1";
           card.hidden = card.dataset.searchHide === "1" || card.dataset.filterHide === "1";
           if (!card.hidden) visible += 1;
         });
+        if (window.siteAlbums) window.siteAlbums.sync();
       } else {
         document.querySelectorAll("main .page a[href], main.page a[href]").forEach((link) => {
           if (link.closest(".nav, .crumbs, .jump, .btn, header, footer, .site-search")) return;
@@ -243,7 +368,24 @@
     });
   };
 
-  toCards();
-  setupLeaderFilter();
-  setupPageSearch();
+  const boot = (posters) => {
+    posterByCode = posters || {};
+    toCards();
+    setupLeaderFilter();
+    setupPageSearch();
+    if (window.siteLang) window.siteLang.apply();
+  };
+  fetch("images/social/posters/index.json")
+    .then((response) => (response.ok ? response.json() : []))
+    .then((items) => {
+      const map = {};
+      (items || []).forEach((item) => {
+        if (item.code && item.files && item.files[0]) {
+          map[item.code] = "images/social/posters/" + item.files[0];
+        }
+      });
+      map.Dc4yPWRiIUg = "images/social/recruit-2026-1.jpg";
+      boot(map);
+    })
+    .catch(() => boot({}));
 })();

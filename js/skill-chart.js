@@ -1,10 +1,10 @@
 const skills = [
-  { name: "陪伴", note: "和成員在一起" },
-  { name: "帶領", note: "帶活動和小隊" },
-  { name: "技能", note: "童軍技能" },
-  { name: "服務", note: "為人和為社區做事" },
-  { name: "照顧", note: "看顧較年幼的成員" },
-  { name: "籌劃", note: "準備集會和活動" },
+  { name: "陪伴", note: "週會坐在一起、出營同行、聽成員傾偈、讓新成員敢開口問" },
+  { name: "帶領", note: "帶週會、帶小隊、帶遠足和露營、比賽前陪練" },
+  { name: "技能", note: "步操、繩結、紮作、先鋒、地圖、遠足、露營、野外烹飪、急救" },
+  { name: "服務", note: "社區服務、渣馬補給、畢業禮和大會的崗位、為旅團做事" },
+  { name: "照顧", note: "看顧較年幼的成員、集合點名、遊戲、安全和情緒" },
+  { name: "籌劃", note: "行程和人數、集合時間、惡劣天氣安排、崗位和更表" },
 ];
 const skillBlue = "#0e6abd";
 const skillFont = "Microsoft JhengHei, PingFang TC, Noto Sans TC, sans-serif";

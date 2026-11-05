@@ -92,6 +92,8 @@ if (filterBar) {
 
   const pin = () => {
     if (header) filterBar.style.top = header.offsetHeight + "px";
+    const offset = (header ? header.offsetHeight : 0) + filterBar.offsetHeight + 8;
+    document.documentElement.style.setProperty("--filter-offset", offset + "px");
   };
   const docTop = (el) => {
     let y = 0;
@@ -138,36 +140,57 @@ if (filterBar) {
         if (name === "social" && category !== "all" && category !== "social") {
           ok = ok && item.dataset.cat === category;
         }
-        if (item.classList.contains("album-card")) {
-          item.dataset.filterHide = ok ? "" : "1";
-          item.hidden = item.dataset.searchHide === "1" || item.dataset.filterHide === "1";
-        } else {
-          item.hidden = !ok;
-          if (ok) item.classList.toggle("is-odd", count % 2 === 1);
-        }
+        item.dataset.filterHide = ok ? '' : '1';
+        const show = item.dataset.searchHide !== '1' && item.dataset.filterHide !== '1';
+        item.hidden = !show;
+        if (show && !item.classList.contains('album-card')) item.classList.toggle('is-odd', count % 2 === 1);
         if (!ok || item.hidden) return;
         count += 1;
       });
       const heading = block.querySelector("h2");
       if (heading && heading.dataset.label) {
-        heading.textContent = heading.dataset.label + "（" + count + "）";
+        const traditional = heading.dataset.label + "（" + count + "）";
+        heading.dataset.zh = traditional;
+        heading.textContent = window.siteLang ? window.siteLang.text(traditional) : traditional;
       }
       block.classList.toggle("is-empty", on && count === 0);
       if (on && count > 0) visible += count;
     });
     if (emptyNote) emptyNote.hidden = visible > 0;
+    if (window.siteAlbums) window.siteAlbums.sync();
   };
   const scrollToFilters = () => {
     pin();
     const top = docTop(filterBar) - (header ? header.offsetHeight : 0);
     window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   };
+  const scrollToSection = (name) => {
+    pin();
+    const target = document.getElementById(name);
+    if (!target) {
+      scrollToFilters();
+      return;
+    }
+    const remain = () => target.getBoundingClientRect().top - filterBar.getBoundingClientRect().bottom - 8;
+    let left = remain();
+    for (let i = 0; i < 4 && Math.abs(left) > 2; i += 1) {
+      const before = left;
+      window.scrollBy({ top: before, behavior: "auto" });
+      left = remain();
+      if (left === before) break;
+      if (Math.abs(left) > 2) {
+        window.scrollBy({ top: left * before / (before - left), behavior: "auto" });
+        left = remain();
+      }
+    }
+  };
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       category = button.dataset.filter;
       apply();
-      if (location.hash !== "#" + category) location.hash = category;
-      scrollToFilters();
+      const nextHash = "#" + category;
+      if (location.hash !== nextHash) history.replaceState(null, "", nextHash);
+      scrollToSection(category);
     });
   });
   sectionButtons.forEach((button) => {
@@ -185,13 +208,14 @@ if (filterBar) {
   category = known.has(fromHash) ? fromHash : "all";
   apply();
   pin();
+  if (known.has(fromHash)) scrollToSection(fromHash);
   window.addEventListener("resize", pin);
   window.addEventListener("hashchange", () => {
     const name = location.hash.replace("#", "");
     if (!known.has(name) || name === category) return;
     category = name;
     apply();
-    scrollToFilters();
+    scrollToSection(name);
   });
 }
 
@@ -219,7 +243,14 @@ if (slides.length && dots) {
       leaveTimer = window.setTimeout(() => leaving.classList.remove("is-leaving"), 400);
     }
     index = next;
-    slides.forEach((slide, i) => slide.classList.toggle("is-on", i === index));
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("is-on", i === index);
+      if (i !== index) return;
+      slide.querySelectorAll("img[data-src]").forEach((img) => {
+        img.src = img.dataset.src;
+        img.removeAttribute("data-src");
+      });
+    });
     dotButtons.forEach((dot, i) => dot.classList.toggle("is-on", i === index));
   }
   document.querySelector(".slider-btn.next").addEventListener("click", () => show(index + 1));
@@ -248,6 +279,43 @@ window.addEventListener("resize", placeToTop);
 toTop.addEventListener("click", () => {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+});
+
+const endZone = document.createElement("div");
+endZone.className = "to-end-zone";
+const toEnd = document.createElement("button");
+toEnd.type = "button";
+toEnd.className = "to-top";
+toEnd.textContent = "去到最底";
+endZone.appendChild(toEnd);
+document.body.appendChild(endZone);
+const placeToEnd = () => {
+  const header = document.querySelector(".top");
+  const tools = document.querySelector(".bar-tools");
+  endZone.style.right = "0px";
+  endZone.style.top = "0px";
+  endZone.style.left = "";
+  endZone.style.bottom = "";
+  const rect = toEnd.getBoundingClientRect();
+  const gap = 18;
+  let top = gap;
+  if (header && tools) {
+    const toolsRect = tools.getBoundingClientRect();
+    const buttonLeft = window.innerWidth - gap - rect.width;
+    const buttonRight = window.innerWidth - gap;
+    if (buttonRight > toolsRect.left && buttonLeft < toolsRect.right) {
+      top = Math.round(header.getBoundingClientRect().bottom) + 8;
+    }
+  }
+  endZone.style.right = (0 - (window.innerWidth - rect.right - gap)) + "px";
+  endZone.style.top = (top - rect.top) + "px";
+};
+placeToEnd();
+window.addEventListener("resize", placeToEnd);
+toEnd.addEventListener("click", () => {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const top = document.documentElement.scrollHeight - window.innerHeight;
+  window.scrollTo({ top: Math.max(0, top), behavior: reduce ? "auto" : "smooth" });
 });
 
 const zoomDialog = document.createElement("dialog");

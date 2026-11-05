@@ -38,7 +38,6 @@ jobs:
             --exclude='_site' \
             --exclude='backup' \
             --exclude='tools' \
-            --exclude='files/legacy' \
             ./ _site/
           touch _site/.nojekyll
 

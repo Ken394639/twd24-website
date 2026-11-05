@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e36b12"/></marker></defs>
+<rect width="400" height="230" fill="#f4f8fb"/>
+<path d="M 30,150 H 168 Q 210,150 210,110 Q 210,70 168,70 H 70" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 30,150 H 168 Q 210,150 210,110 Q 210,70 168,70 H 70" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 30,150 H 168 Q 210,150 210,110 Q 210,70 168,70 H 70" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 30,150 H 168 Q 210,150 210,110 Q 210,70 168,70 H 70" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 250,40 H 150" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 250,40 H 150" stroke="#8a3c08" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 250,40 H 150" stroke="#e36b12" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 250,40 H 150" stroke="#f6c59a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150,40 Q 120,40 120,80 L 120,150" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150,40 Q 120,40 120,80 L 120,150" stroke="#8a3c08" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150,40 Q 120,40 120,80 L 120,150" stroke="#e36b12" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150,40 Q 120,40 120,80 L 120,150" stroke="#f6c59a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="120" cy="150" r="10" fill="#e36b12" stroke="#fff" stroke-width="3"/>
+<circle cx="117" cy="147" r="3" fill="#fff" opacity="0.85"/>
+<text x="250" y="34" fill="#e36b12" font-size="15" font-family="Microsoft JhengHei, PingFang TC, sans-serif">這次橙端壓過藍繩</text>
+<path d="M 130,140 Q 90,170 70,120" fill="none" stroke="#e36b12" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<circle cx="22" cy="22" r="14" fill="#163a5c"/><text x="22" y="27" text-anchor="middle" fill="#fff" font-size="14" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-weight="700">3</text>
+</svg>

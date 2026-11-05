@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e36b12"/></marker></defs>
+<rect width="400" height="230" fill="#f4f8fb"/>
+<path d="M 160,210 L 150,128" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 160,210 L 150,128" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 160,210 L 150,128" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 160,210 L 150,128" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40" y="78" width="300" height="44" rx="12" fill="#d4b483" stroke="#7a5a32" stroke-width="2"/>
+<path d="M 150,78 Q 150,46 200,46 L 200,78" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150,78 Q 150,46 200,46 L 200,78" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150,78 Q 150,46 200,46 L 200,78" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150,78 Q 150,46 200,46 L 200,78" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200,122 L 230,160 Q 270,180 250,140" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200,122 L 230,160 Q 270,180 250,140" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200,122 L 230,160 Q 270,180 250,140" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200,122 L 230,160 Q 270,180 250,140" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="230" cy="145" r="10" fill="#1b4f8a" stroke="#fff" stroke-width="3"/>
+<circle cx="227" cy="142" r="3" fill="#fff" opacity="0.85"/>
+<text x="280" y="170" fill="#1b4f8a" font-size="15" font-family="Microsoft JhengHei, PingFang TC, sans-serif">繞過主繩</text>
+<circle cx="22" cy="22" r="14" fill="#163a5c"/><text x="22" y="27" text-anchor="middle" fill="#fff" font-size="14" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-weight="700">2</text>
+</svg>
