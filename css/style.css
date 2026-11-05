@@ -109,11 +109,6 @@ a:hover { text-decoration: underline; }
   cursor: pointer;
 }
 .lang-switch button[aria-pressed="true"] { background: var(--blue); color: #fff; }
-.lang-note {
-  margin: 0 0 12px;
-  color: #555;
-  font-size: 14px;
-}
 .nav { flex: 1; justify-content: flex-end; }
 .nav > ul { flex-wrap: nowrap; justify-content: flex-end; }
 .nav a {
@@ -1504,7 +1499,6 @@ footer a:hover { text-decoration: underline; }
   pointer-events: none;
 }
 .copy { max-width: var(--max); margin: 14px auto 0; color: #555; font-size: 13px; }
-.made { max-width: var(--max); margin: 2px auto 0; color: #9aa3ab; font-size: 12px; }
 
 @media (max-width: 1100px) {
   html { zoom: 1; }
@@ -1921,7 +1915,6 @@ footer a:hover { text-decoration: underline; }
   .roster-filters,
   .site-search,
   .page-search,
-  .lang-note,
   .lang-switch,
   .to-top-zone,
   .to-end-zone,
