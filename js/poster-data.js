@@ -1,0 +1,266 @@
+window.TWG_POSTERS = [
+  {
+    "id": "midautumn-2026",
+    "code": "DdsqUI-FPp7",
+    "title": "中秋節快樂",
+    "cat": "gathering",
+    "href": "https://www.instagram.com/24twg/p/DdsqUI-FPp7/",
+    "files": [
+      "midautumn-2026.jpg"
+    ]
+  },
+  {
+    "id": "parade-2026",
+    "code": "DfL9v7Kk-d5",
+    "title": "童軍大會操2026",
+    "cat": "gathering",
+    "href": "https://www.instagram.com/24twg/p/DfL9v7Kk-d5/",
+    "files": [
+      "parade-2026.jpg",
+      "parade-2026-2.jpg"
+    ]
+  },
+  {
+    "id": "skill-final-2026",
+    "code": "De1wqbEn-aL",
+    "title": "技能比賽2026完美落幕",
+    "cat": "contest",
+    "href": "https://www.instagram.com/24twg/p/De1wqbEn-aL/",
+    "files": [
+      "skill-final-2026.jpg"
+    ]
+  },
+  {
+    "id": "skill-field-2026",
+    "code": "Ddy0Z-bga6o",
+    "title": "技能比賽2026外野日",
+    "cat": "contest",
+    "href": "https://www.instagram.com/24twg/p/Ddy0Z-bga6o/",
+    "files": [
+      "skill-field-2026.jpg"
+    ]
+  },
+  {
+    "id": "win-2026",
+    "code": "Dar-0O5mCcQ",
+    "title": "童軍深資報捷",
+    "cat": "contest",
+    "href": "https://www.instagram.com/24twg/p/Dar-0O5mCcQ/",
+    "files": [
+      "win-2026.jpg"
+    ]
+  },
+  {
+    "id": "cny-horse-2026",
+    "code": "DU0yV-dFYKs",
+    "title": "2026馬到功成",
+    "cat": "gathering",
+    "href": "https://www.instagram.com/24twg/p/DU0yV-dFYKs/",
+    "files": [
+      "cny-horse-2026.jpg"
+    ]
+  },
+  {
+    "id": "cny-gather-2026",
+    "code": "DVBKS1zmKEx",
+    "title": "馬年新春團拜",
+    "cat": "gathering",
+    "href": "https://www.instagram.com/24twg/p/DVBKS1zmKEx/",
+    "files": [
+      "cny-gather-2026.jpg"
+    ]
+  },
+  {
+    "id": "xmas-2025",
+    "code": "DSq6sfXAYHf",
+    "title": "聖誕快樂",
+    "cat": "gathering",
+    "href": "https://www.instagram.com/24twg/p/DSq6sfXAYHf/",
+    "files": [
+      "xmas-2025.jpg"
+    ]
+  },
+  {
+    "id": "40th-dinner",
+    "code": "DUvM-SwD2Uy",
+    "title": "四十周年旅慶晚宴",
+    "cat": "gathering",
+    "href": "https://www.instagram.com/24twg/p/DUvM-SwD2Uy/",
+    "files": [
+      "40th-dinner.jpg"
+    ]
+  },
+  {
+    "id": "ns-carnival-2026",
+    "code": "DW_vAf5mErD",
+    "title": "115周年軍樂匯演嘉年華",
+    "cat": "gathering",
+    "href": "https://www.instagram.com/24twg/p/DW_vAf5mErD/",
+    "files": [
+      "ns-carnival-2026.jpg",
+      "ns-carnival-2026-2.jpg",
+      "ns-carnival-2026-3.jpg",
+      "ns-carnival-2026-4.jpg"
+    ]
+  },
+  {
+    "id": "camp-2025",
+    "code": "DO2dfS3lReb",
+    "title": "暑期宿營2025",
+    "cat": "camp",
+    "href": "https://www.instagram.com/24twg/p/DO2dfS3lReb/",
+    "files": [
+      "camp-2025.jpg"
+    ]
+  },
+  {
+    "id": "parade-2025",
+    "code": "DQQsOZakyFs",
+    "title": "童軍大會操2025",
+    "cat": "gathering",
+    "href": "https://www.instagram.com/24twg/p/DQQsOZakyFs/",
+    "files": [
+      "parade-2025.jpg",
+      "parade-2025-2.jpg",
+      "parade-2025-3.jpg"
+    ]
+  },
+  {
+    "id": "pioneer-2025",
+    "code": "DPYb2yJjKH9",
+    "title": "深資先鋒工程訓練日",
+    "cat": "training",
+    "href": "https://www.instagram.com/24twg/p/DPYb2yJjKH9/",
+    "files": [
+      "pioneer-2025.jpg",
+      "pioneer-2025-2.jpg",
+      "pioneer-2025-3.jpg",
+      "pioneer-2025-4.jpg"
+    ]
+  },
+  {
+    "id": "adventure-2025",
+    "code": "DOkd9kZgU3E",
+    "title": "歷奇體驗日",
+    "cat": "training",
+    "href": "https://www.instagram.com/24twg/p/DOkd9kZgU3E/",
+    "files": [
+      "adventure-2025.jpg",
+      "adventure-2025-2.jpg",
+      "adventure-2025-3.jpg",
+      "adventure-2025-4.jpg"
+    ]
+  },
+  {
+    "id": "cooking-2025",
+    "code": "DOSY05GAebw",
+    "title": "原野烹飪工作坊",
+    "cat": "training",
+    "href": "https://www.instagram.com/24twg/p/DOSY05GAebw/",
+    "files": [
+      "cooking-2025.jpg",
+      "cooking-2025-2.jpg",
+      "cooking-2025-3.jpg",
+      "cooking-2025-4.jpg"
+    ]
+  },
+  {
+    "id": "fukuoka-2025",
+    "code": "DKn6QHOzVbF",
+    "title": "深資福岡之旅",
+    "cat": "travel",
+    "href": "https://www.instagram.com/24twg/p/DKn6QHOzVbF/",
+    "files": [
+      "fukuoka-2025.jpg",
+      "fukuoka-2025-2.jpg",
+      "fukuoka-2025-3.jpg",
+      "fukuoka-2025-4.jpg"
+    ]
+  },
+  {
+    "id": "cub-win-2025",
+    "code": "DG-fSnlSc4Z",
+    "title": "幼童軍報捷",
+    "cat": "contest",
+    "href": "https://www.instagram.com/24twg/p/DG-fSnlSc4Z/",
+    "files": [
+      "cub-win-2025.jpg",
+      "cub-win-2025-2.jpg"
+    ]
+  },
+  {
+    "id": "marathon-2025",
+    "code": "DFzrrxhT3Vs",
+    "title": "渣打馬拉松服務",
+    "cat": "service",
+    "href": "https://www.instagram.com/24twg/p/DFzrrxhT3Vs/",
+    "files": [
+      "marathon-2025.jpg",
+      "marathon-2025-2.jpg"
+    ]
+  },
+  {
+    "id": "oath-2026",
+    "code": "DTUHVpmjeyE",
+    "title": "戶外團集會暨宣誓禮",
+    "cat": "gathering",
+    "href": "https://www.instagram.com/24twg/p/DTUHVpmjeyE/",
+    "files": [
+      "oath-2026.jpg",
+      "oath-2026-2.jpg",
+      "oath-2026-3.jpg"
+    ]
+  },
+  {
+    "id": "hike-2026",
+    "code": "DTF4RGKAXiV",
+    "title": "冬季遠足",
+    "cat": "hike",
+    "href": "https://www.instagram.com/24twg/p/DTF4RGKAXiV/",
+    "files": [
+      "hike-2026.jpg",
+      "hike-2026-2.jpg",
+      "hike-2026-3.jpg"
+    ]
+  },
+  {
+    "id": "bbq-2026",
+    "code": "DUDbj3yj_9F",
+    "title": "聯團BBQ",
+    "cat": "gathering",
+    "href": "https://www.instagram.com/24twg/p/DUDbj3yj_9F/",
+    "files": [
+      "bbq-2026.jpg"
+    ]
+  },
+  {
+    "id": "patrol-day-2025",
+    "code": "DJMfdBjS_v4",
+    "title": "童軍團小隊活動日2025",
+    "cat": "training",
+    "href": "https://www.instagram.com/24twg/p/DJMfdBjS_v4/",
+    "files": [
+      "patrol-day-2025.jpg"
+    ]
+  },
+  {
+    "id": "sedan-2025",
+    "code": "DJeKvPxhEnS",
+    "title": "集會日常轎子",
+    "cat": "gathering",
+    "href": "https://www.instagram.com/24twg/p/DJeKvPxhEnS/",
+    "files": [
+      "sedan-2025.jpg"
+    ]
+  },
+  {
+    "id": "gsl-review-2024",
+    "code": "DEhGDYRMAwa",
+    "title": "旅長的話回顧2024",
+    "cat": "other",
+    "href": "https://www.instagram.com/24twg/p/DEhGDYRMAwa/",
+    "files": [
+      "gsl-review-2024.jpg"
+    ]
+  }
+];

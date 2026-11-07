@@ -1,10 +1,10 @@
 const skills = [
-  { name: "陪伴", note: "週會坐在一起、出營同行、聽成員傾偈、讓新成員敢開口問" },
-  { name: "帶領", note: "帶週會、帶小隊、帶遠足和露營、比賽前陪練" },
+  { name: "人際關係", note: "週會坐在一起、出營同行、聽成員傾偈、讓新成員敢開口問" },
+  { name: "領導才", note: "帶週會、帶小隊、帶遠足和露營、比賽前陪練" },
   { name: "技能", note: "步操、繩結、紮作、先鋒、地圖、遠足、露營、野外烹飪、急救" },
   { name: "服務", note: "社區服務、渣馬補給、畢業禮和大會的崗位、為旅團做事" },
-  { name: "照顧", note: "看顧較年幼的成員、集合點名、遊戲、安全和情緒" },
-  { name: "籌劃", note: "行程和人數、集合時間、惡劣天氣安排、崗位和更表" },
+  { name: "關懷", note: "看顧較年幼的成員、集合點名、遊戲、安全和情緒" },
+  { name: "策劃", note: "行程和人數、集合時間、惡劣天氣安排、崗位和更表" },
 ];
 const skillBlue = "#0e6abd";
 const skillFont = "Microsoft JhengHei, PingFang TC, Noto Sans TC, sans-serif";
@@ -46,12 +46,12 @@ function drawSkillChart(host) {
     const value = values[i];
     const tip = at(i, value);
     const score = Math.round(value * 100);
-    const nameScale = Math.max(1.42, value + 0.22);
-    const scoreScale = Math.max(1.16, Math.min(value + 0.1, nameScale - 0.14));
+    const nameScale = Math.max(1.52, value + 0.38);
+    const scoreScale = Math.max(1.12, Math.min(value + 0.06, nameScale - 0.3));
     const [sx, sy] = at(i, scoreScale);
     const [lx, ly] = at(i, nameScale);
     include(tip[0], tip[1], 8);
-    include(lx, ly, 28);
+    include(lx, ly, 18 + skill.name.length * 16);
     include(sx, sy, 18);
     const edge = Math.max(1.02, value);
     const left = (() => {
@@ -63,11 +63,13 @@ function drawSkillChart(host) {
       return [cx + Math.cos(angle) * radius * edge, cy + Math.sin(angle) * radius * edge];
     })();
     const cell = [[cx, cy], left, tip, right].map((p) => p.map((n) => n.toFixed(1)).join(",")).join(" ");
+    const outward = Math.cos(-Math.PI / 2 + (i * Math.PI) / 3);
+    const nameAnchor = outward > 0.3 ? "start" : outward < -0.3 ? "end" : "middle";
     return `<g class="skill-arm" data-i="${i}" tabindex="0">
       <polygon class="skill-cell" points="${cell}" fill="transparent"/>
       <circle class="skill-dot" cx="${tip[0].toFixed(1)}" cy="${tip[1].toFixed(1)}" r="3.5" fill="${skillBlue}"/>
       <text class="skill-score" x="${sx.toFixed(1)}" y="${sy.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-size="16" font-weight="700" fill="#333" font-family="${skillFont}">${score}</text>
-      <text class="skill-name" x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-size="15" fill="#333" font-family="${skillFont}">${skill.name}</text>
+      <text class="skill-name" x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${nameAnchor}" dominant-baseline="middle" font-size="15" fill="#333" font-family="${skillFont}">${skill.name}</text>
     </g>`;
   }).join("");
 

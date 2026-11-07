@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>圖表方向 · 荃灣第二十四旅</title>
 <link rel="icon" href="images/logo.png?v=2">
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=22">
 <style>
 .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 28px; margin-top: 8px; }
 .choice h2 { margin: 0 0 6px; font-size: 18px; }
@@ -14,7 +14,7 @@
 .choice svg { width: 100%; height: auto; display: block; }
 .choice .skill-chart { max-width: none; margin: 0; }
 .bars { display: grid; gap: 8px; margin: 18px 0 8px; }
-.bar-row { display: grid; grid-template-columns: 3em 1fr 2em; gap: 8px; align-items: center; font-size: 15px; }
+.bar-row { display: grid; grid-template-columns: 5em 1fr 2em; gap: 8px; align-items: center; font-size: 15px; }
 .bar-track { height: 12px; background: #e7eef6; }
 .bar-fill { display: block; height: 12px; width: 100%; background: #0e6abd; }
 .plain-list { margin: 16px 0 8px; padding: 0; list-style: none; }
@@ -71,30 +71,30 @@
       <h2>6. 橫條</h2>
       <p class="why">不用雷達。六項各一條，全部拉到滿。</p>
       <div class="bars" aria-label="橫條圖，六項都是滿值。">
-        <div class="bar-row"><span>陪伴</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
-        <div class="bar-row"><span>帶領</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
+        <div class="bar-row"><span>人際關係</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
+        <div class="bar-row"><span>領導才</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
         <div class="bar-row"><span>技能</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
         <div class="bar-row"><span>服務</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
-        <div class="bar-row"><span>照顧</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
-        <div class="bar-row"><span>籌劃</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
+        <div class="bar-row"><span>關懷</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
+        <div class="bar-row"><span>策劃</span><span class="bar-track"><span class="bar-fill"></span></span><span>滿</span></div>
       </div>
     </section>
     <section class="choice" id="c7">
       <h2>7. 只寫文字</h2>
       <p class="why">沒有圖。和介紹文字放在一起，最不像遊戲畫面。</p>
       <ul class="plain-list">
-        <li><span>陪伴</span><span>滿</span></li>
-        <li><span>帶領</span><span>滿</span></li>
+        <li><span>人際關係</span><span>滿</span></li>
+        <li><span>領導才</span><span>滿</span></li>
         <li><span>技能</span><span>滿</span></li>
         <li><span>服務</span><span>滿</span></li>
-        <li><span>照顧</span><span>滿</span></li>
-        <li><span>籌劃</span><span>滿</span></li>
+        <li><span>關懷</span><span>滿</span></li>
+        <li><span>策劃</span><span>滿</span></li>
       </ul>
     </section>
     <section class="choice" id="c8">
       <h2>8. 一項畫出外圈</h2>
-      <p class="why">畫法同第 4 種。帶領畫出外圈，只示範「特別強」可以怎樣畫。不是某人的分數。</p>
-      <svg viewBox="0 0 360 360" role="img" aria-label="示範：帶領畫出滿值外圈，其餘五項是滿值。不是任何一位領袖的分數。" data-draw="site" data-skills="1 1.28 1 1 1 1"></svg>
+      <p class="why">畫法同第 4 種。領導才畫出外圈，只示範「特別強」可以怎樣畫。不是某人的分數。</p>
+      <svg viewBox="0 0 360 360" role="img" aria-label="示範：領導才畫出滿值外圈，其餘五項是滿值。不是任何一位領袖的分數。" data-draw="site" data-skills="1 1.28 1 1 1 1"></svg>
     </section>
   </div>
   <p><a href="leaders.html">返回旅團領袖</a></p>
@@ -104,7 +104,7 @@
 new Chart(document.querySelector("canvas.skill-radar"), {
   type: "radar",
   data: {
-    labels: ["陪伴", "帶領", "技能", "服務", "照顧", "籌劃"],
+    labels: ["人際關係", "領導才", "技能", "服務", "關懷", "策劃"],
     datasets: [{
       data: [1, 1, 1, 1, 1, 1],
       fill: true,
@@ -126,7 +126,7 @@ new Chart(document.querySelector("canvas.skill-radar"), {
 </script>
 <script>
 (function () {
-  var labels = ["陪伴", "帶領", "技能", "服務", "照顧", "籌劃"];
+  var labels = ["人際關係", "領導才", "技能", "服務", "關懷", "策劃"];
   var cx = 180;
   var cy = 180;
   var radius = 96;

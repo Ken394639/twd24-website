@@ -89,12 +89,33 @@
     root.appendChild(grid);
   }
 
+  function fail() {
+    if (root.querySelector(".poster-grid")) return;
+    root.appendChild(el("p", null, "暫時未能載入海報。請稍後再試，或到 Instagram @24twg 睇。"));
+  }
+
+  function show(items) {
+    if (!items || !items.length) {
+      fail();
+      return;
+    }
+    try {
+      render(items);
+    } catch (e) {
+      fail();
+    }
+  }
+
+  if (window.TWG_POSTERS && window.TWG_POSTERS.length) {
+    show(window.TWG_POSTERS);
+    return;
+  }
+
   fetch("images/social/posters/index.json")
     .then(function (r) {
+      if (!r.ok) throw new Error("posters");
       return r.json();
     })
-    .then(render)
-    .catch(function () {
-      root.appendChild(el("p", null, "暫時未能載入海報。請稍後再試，或到 Instagram @24twg 睇。"));
-    });
+    .then(show)
+    .catch(fail);
 })();

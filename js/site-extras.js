@@ -7,6 +7,7 @@
     camp: "images/act-camp.jpg",
     hike: "images/act-hike.jpg",
     water: "images/act-water.jpg",
+    fight: "images/act-water.jpg",
     travel: "images/act-travel.jpg",
     gathering: "images/act-bbq.jpg",
     other: "images/hero.jpg",
@@ -233,7 +234,7 @@
     bar.setAttribute("aria-label", "領袖篩選");
 
     let html = `<label class="site-search"><span class="visually-hidden">搜尋領袖</span>
-      <input type="search" id="leader-search" placeholder="搜尋職位…" autocomplete="off">
+      <input type="search" id="leader-search" placeholder="搜尋領袖姓名…" autocomplete="off">
     </label>`;
     if (multiSection) {
       html += `<span class="filter-label">支部</span>`;
@@ -373,7 +374,6 @@
     toCards();
     setupLeaderFilter();
     setupPageSearch();
-    if (window.siteLang) window.siteLang.apply();
   };
   fetch("images/social/posters/index.json")
     .then((response) => (response.ok ? response.json() : []))

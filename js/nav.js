@@ -149,9 +149,7 @@ if (filterBar) {
       });
       const heading = block.querySelector("h2");
       if (heading && heading.dataset.label) {
-        const traditional = heading.dataset.label + "（" + count + "）";
-        heading.dataset.zh = traditional;
-        heading.textContent = window.siteLang ? window.siteLang.text(traditional) : traditional;
+        heading.textContent = heading.dataset.label + "（" + count + "）";
       }
       block.classList.toggle("is-empty", on && count === 0);
       if (on && count > 0) visible += count;
@@ -204,14 +202,16 @@ if (filterBar) {
     year = yearSelect.value;
     apply();
   });
-  const fromHash = location.hash.replace("#", "");
+  let fromHash = location.hash.replace("#", "");
+  if (fromHash === "fight") fromHash = "water";
   category = known.has(fromHash) ? fromHash : "all";
   apply();
   pin();
   if (known.has(fromHash)) scrollToSection(fromHash);
   window.addEventListener("resize", pin);
   window.addEventListener("hashchange", () => {
-    const name = location.hash.replace("#", "");
+    let name = location.hash.replace("#", "");
+    if (name === "fight") name = "water";
     if (!known.has(name) || name === category) return;
     category = name;
     apply();
