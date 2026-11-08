@@ -14,6 +14,7 @@
   };
 
   let posterByCode = {};
+  let frameByAlbum = {};
 
   const eventCover = {
     DXzRBfokTA4: "images/album-covers/72177720333401952.jpg",
@@ -50,10 +51,13 @@
     const ig = (href || "").match(/instagram\.com\/[^/]+\/(?:p|reel)\/([^/?#]+)/i);
     if (ig) {
       const code = ig[1];
-      const raw = posterByCode[code] || eventCover[code] || ("images/social/post-covers/" + code + ".jpg");
-      const thumb = asThumb(raw);
-      if (thumb) return { src: thumb, fallback: raw, last };
-      return { src: raw, fallback: last, last: "" };
+      const poster = posterByCode[code] || "";
+      const shot = "images/social/post-covers/" + code + ".jpg";
+      const flickr = eventCover[code] || "";
+      const primary = poster || shot;
+      const mid = flickr && flickr !== primary ? flickr : last;
+      const end = mid === last ? "" : last;
+      return { src: primary, fallback: mid, last: end };
     }
     if ((href || "").indexOf("pfbid0m1LdouJGXDitHqYj8DF7mscZpHPCmw3VBHYKXRBtpStoUSU3M1NSgHSjAcpr1KTQl") !== -1) {
       return { src: "images/social/posters/parade-2026.jpg", fallback: last, last: "" };
@@ -78,8 +82,10 @@
   const capOf = (block) => albumLimits.get(block) || BATCH;
   const showCard = (card) => {
     card.dataset.shown = "1";
-    const img = card.querySelector("img");
-    if (img && img.dataset.src && !img.getAttribute("src")) img.src = img.dataset.src;
+    card.querySelectorAll("[data-src]").forEach((el) => {
+      if (el.dataset.poster && !el.getAttribute("poster")) el.poster = el.dataset.poster;
+      if (!el.getAttribute("src")) el.src = el.dataset.src;
+    });
   };
   const syncAlbums = () => {
     document.querySelectorAll(".album-block").forEach((block) => {
@@ -133,23 +139,50 @@
       table.querySelectorAll("tbody tr").forEach((row) => {
         const link = row.querySelector("a[href]");
         if (!link) return;
-        const cat = row.dataset.cat || "";
-        const card = document.createElement("a");
+        const cat = row.dataset.cat || block.dataset.filter || "";
+        const label = link.textContent.trim();
+        const href = link.getAttribute("href") || "";
+        const albumId = ((href.match(/\/albums\/(\d+)/) || [])[1]) || "";
+        const frames = frameByAlbum[albumId];
+        const isVideo = !!(frames && frames.video);
+        const card = document.createElement(isVideo ? "div" : "a");
         card.className = "album-card";
-        card.href = link.href;
-        if (link.target) card.target = link.target;
-        if (link.rel) card.rel = link.rel;
+        if (!isVideo) {
+          card.href = link.href;
+          if (link.target) card.target = link.target;
+          if (link.rel) card.rel = link.rel;
+        }
         card.dataset.year = row.dataset.year || "";
         card.dataset.sections = row.dataset.sections || "";
-        card.dataset.cat = cat;
-        const label = link.textContent.trim();
-        const img = document.createElement("img");
-        img.alt = label;
-        img.loading = "lazy";
-        img.decoding = "async";
-        bindCover(img, coverFor(link.getAttribute("href") || "", cat));
-        const body = document.createElement("div");
-        body.className = "album-card-body";
+        card.dataset.cat = row.dataset.cat || (block.dataset.filter === "all" ? "" : block.dataset.filter);
+        let media;
+        if (isVideo) {
+          card.classList.add("album-card-video");
+          media = document.createElement("video");
+          media.className = "album-video";
+          media.controls = true;
+          media.playsInline = true;
+          media.preload = "none";
+          media.dataset.src = frames.video;
+          media.dataset.poster = frames.poster || "";
+          media.setAttribute("aria-label", label);
+        } else if (frames && frames.photos && frames.photos.length > 1) {
+          const count = Math.min(frames.photos.length, 4);
+          media = document.createElement("span");
+          media.className = "album-shots shots-" + count;
+          frames.photos.slice(0, count).forEach((file, index) => {
+            const img = document.createElement("img");
+            img.alt = index === 0 ? label : "";
+            img.decoding = "async";
+            img.dataset.src = "images/album-frames/" + albumId + "/" + file;
+            media.appendChild(img);
+          });
+        } else {
+          media = document.createElement("img");
+          media.alt = label;
+          media.decoding = "async";
+          bindCover(media, coverFor(href, cat));
+        }
         const title = document.createElement("strong");
         title.textContent = label;
         const meta = document.createElement("span");
@@ -157,8 +190,17 @@
         const kind = row.cells[2] ? row.cells[2].textContent.trim() : "";
         const platform = row.cells[3] ? row.cells[3].textContent.trim() : "";
         meta.textContent = [date, kind || platform, platform && kind ? platform : ""].filter(Boolean).join(" · ");
+        let body;
+        if (isVideo) {
+          body = document.createElement("a");
+          body.href = link.href;
+          body.className = "album-card-body";
+        } else {
+          body = document.createElement("div");
+          body.className = "album-card-body";
+        }
         body.append(title, meta);
-        card.append(img, body);
+        card.append(media, body);
         grid.appendChild(card);
       });
       const more = document.createElement("button");
@@ -369,23 +411,57 @@
     });
   };
 
-  const boot = (posters) => {
+  const postersFrom = (items) => {
+    const map = {};
+    (Array.isArray(items) ? items : []).forEach((item) => {
+      if (item.code && item.files && item.files[0]) {
+        map[item.code] = "images/social/posters/" + item.files[0];
+      }
+    });
+    map.Dc4yPWRiIUg = "images/social/recruit-2026-1.jpg";
+    return map;
+  };
+  const framesFrom = (raw) => {
+    const map = {};
+    Object.keys(raw || {}).forEach((id) => {
+      const value = raw[id];
+      if (Array.isArray(value) && value.length) {
+        map[id] = { photos: value };
+      } else if (value && value.video) {
+        map[id] = {
+          video: "images/album-frames/" + id + "/" + value.video,
+          poster: value.poster ? "images/album-frames/" + id + "/" + value.poster : "",
+        };
+      }
+    });
+    return map;
+  };
+  const boot = (posters, frames) => {
     posterByCode = posters || {};
+    frameByAlbum = frames || {};
     toCards();
     setupLeaderFilter();
     setupPageSearch();
   };
-  fetch("images/social/posters/index.json")
-    .then((response) => (response.ok ? response.json() : []))
-    .then((items) => {
-      const map = {};
-      (items || []).forEach((item) => {
-        if (item.code && item.files && item.files[0]) {
-          map[item.code] = "images/social/posters/" + item.files[0];
-        }
-      });
-      map.Dc4yPWRiIUg = "images/social/recruit-2026-1.jpg";
-      boot(map);
-    })
-    .catch(() => boot({}));
+  const withFrames = (posters) => {
+    if (!document.querySelector(".album-block")) {
+      boot(posters, {});
+      return;
+    }
+    if (window.ALBUM_FRAMES) {
+      boot(posters, framesFrom(window.ALBUM_FRAMES));
+      return;
+    }
+    fetch("images/album-frames/index.json?v=1")
+      .then((response) => (response.ok ? response.json() : {}))
+      .then((raw) => boot(posters, framesFrom(raw)))
+      .catch(() => boot(posters, {}));
+  };
+  if (window.SOCIAL_POSTERS) withFrames(postersFrom(window.SOCIAL_POSTERS));
+  else {
+    fetch("images/social/posters/index.json")
+      .then((response) => (response.ok ? response.json() : []))
+      .then((items) => withFrames(postersFrom(items)))
+      .catch(() => withFrames({}));
+  }
 })();
