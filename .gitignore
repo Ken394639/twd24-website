@@ -11,6 +11,7 @@ venv/
 index-preview.html
 leader-demo.html
 chart-choices.html
+woodbadge.html
 
 # 維護用 JSON（網站 HTML/JS 已已內嵌，瀏覽器唔讀）
 knot-map.json

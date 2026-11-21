@@ -46,6 +46,7 @@ jobs:
             --exclude='index-preview.html' \
             --exclude='leader-demo.html' \
             --exclude='chart-choices.html' \
+            --exclude='woodbadge.html' \
             --exclude='請勿上載.txt' \
             --exclude='knot-map.json' \
             --exclude='sas_publications.json' \
