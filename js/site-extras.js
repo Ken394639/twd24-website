@@ -224,7 +224,7 @@
     if (!roster || !roster.querySelector(".person")) return;
 
     const sectionLabel = {
-      group: "旅團領導",
+      group: "旅務",
       cub: "幼童軍",
       scout: "童軍",
       venture: "深資",
