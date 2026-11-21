@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e36b12"/></marker></defs>
+<rect width="400" height="230" fill="#f4f8fb"/>
+<path d="M 200,210 L 188,140" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200,210 L 188,140" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200,210 L 188,140" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200,210 L 188,140" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="30" y="92" width="340" height="42" rx="12" fill="#d4b483" stroke="#7a5a32" stroke-width="2"/>
+<path d="M 188,92 Q 188,60 220,60 L 220,92" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 188,92 Q 188,60 220,60 L 220,92" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 188,92 Q 188,60 220,60 L 220,92" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 188,92 Q 188,60 220,60 L 220,92" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 220,134 L 220,200" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 220,134 L 220,200" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 220,134 L 220,200" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 220,134 L 220,200" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="220" cy="200" r="10" fill="#1b4f8a" stroke="#fff" stroke-width="3"/>
+<circle cx="217" cy="197" r="3" fill="#fff" opacity="0.85"/>
+<path d="M 230,190 Q 270,200 300,170" fill="none" stroke="#e36b12" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<circle cx="22" cy="22" r="14" fill="#163a5c"/><text x="22" y="27" text-anchor="middle" fill="#fff" font-size="14" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-weight="700">1</text>
+</svg>

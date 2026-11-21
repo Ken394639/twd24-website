@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e36b12"/></marker></defs>
+<rect width="400" height="230" fill="#f4f8fb"/>
+<rect x="70" y="100" width="270" height="36" rx="12" fill="#d4b483" stroke="#7a5a32" stroke-width="2" transform="rotate(-32 205.0 118.0)"/>
+<rect x="70" y="100" width="270" height="36" rx="12" fill="#d4b483" stroke="#7a5a32" stroke-width="2" transform="rotate(32 205.0 118.0)"/>
+<path d="M 120,150 Q 90,120 130,100 Q 160,90 150,130" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 120,150 Q 90,120 130,100 Q 160,90 150,130" stroke="#8a3c08" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 120,150 Q 90,120 130,100 Q 160,90 150,130" stroke="#e36b12" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 120,150 Q 90,120 130,100 Q 160,90 150,130" stroke="#f6c59a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="150" cy="130" r="10" fill="#e36b12" stroke="#fff" stroke-width="3"/>
+<circle cx="147" cy="127" r="3" fill="#fff" opacity="0.85"/>
+<text x="40" y="40" fill="#e36b12" font-size="15" font-family="Microsoft JhengHei, PingFang TC, sans-serif">一木上先打曳木結</text>
+<circle cx="22" cy="22" r="14" fill="#163a5c"/><text x="22" y="27" text-anchor="middle" fill="#fff" font-size="14" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-weight="700">1</text>
+</svg>

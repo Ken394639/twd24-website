@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e36b12"/></marker></defs>
+<rect width="400" height="230" fill="#f4f8fb"/>
+<rect x="176" y="24" width="48" height="182" rx="12" fill="#d4b483" stroke="#7a5a32" stroke-width="2"/>
+<rect x="40" y="90" width="320" height="44" rx="12" fill="#d4b483" stroke="#7a5a32" stroke-width="2"/>
+<path d="M 120,120 H 280" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 120,120 H 280" stroke="#8a3c08" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 120,120 H 280" stroke="#e36b12" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 120,120 H 280" stroke="#f6c59a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 130,146 H 270" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 130,146 H 270" stroke="#8a3c08" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 130,146 H 270" stroke="#e36b12" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 130,146 H 270" stroke="#f6c59a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 140,168 H 260" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 140,168 H 260" stroke="#8a3c08" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 140,168 H 260" stroke="#e36b12" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 140,168 H 260" stroke="#f6c59a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="260" cy="168" r="10" fill="#e36b12" stroke="#fff" stroke-width="3"/>
+<circle cx="257" cy="165" r="3" fill="#fff" opacity="0.85"/>
+<text x="36" y="214" fill="#e36b12" font-size="15" font-family="Microsoft JhengHei, PingFang TC, sans-serif">在交叉外繞三至四圈</text>
+<circle cx="22" cy="22" r="14" fill="#163a5c"/><text x="22" y="27" text-anchor="middle" fill="#fff" font-size="14" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-weight="700">2</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e36b12"/></marker></defs>
+<rect width="400" height="230" fill="#f4f8fb"/>
+<rect x="176" y="24" width="48" height="182" rx="12" fill="#d4b483" stroke="#7a5a32" stroke-width="2"/>
+<rect x="40" y="90" width="320" height="44" rx="12" fill="#d4b483" stroke="#7a5a32" stroke-width="2"/>
+<path d="M 130,120 H 270" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 130,120 H 270" stroke="#5c7ea2" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 130,120 H 270" stroke="#9db7d4" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 130,120 H 270" stroke="#e8f2fb" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150,150 H 250" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150,150 H 250" stroke="#5c7ea2" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150,150 H 250" stroke="#9db7d4" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150,150 H 250" stroke="#e8f2fb" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200,70 L 200,175" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200,70 L 200,175" stroke="#8a3c08" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200,70 L 200,175" stroke="#e36b12" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200,70 L 200,175" stroke="#f6c59a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 230,78 L 230,168" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 230,78 L 230,168" stroke="#8a3c08" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 230,78 L 230,168" stroke="#e36b12" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 230,78 L 230,168" stroke="#f6c59a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="230" cy="168" r="10" fill="#e36b12" stroke="#fff" stroke-width="3"/>
+<circle cx="227" cy="165" r="3" fill="#fff" opacity="0.85"/>
+<text x="250" y="40" fill="#e36b12" font-size="15" font-family="Microsoft JhengHei, PingFang TC, sans-serif">兩木之間再繞緊</text>
+<circle cx="22" cy="22" r="14" fill="#163a5c"/><text x="22" y="27" text-anchor="middle" fill="#fff" font-size="14" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-weight="700">3</text>
+</svg>

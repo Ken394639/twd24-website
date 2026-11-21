@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e36b12"/></marker></defs>
+<rect width="400" height="230" fill="#f4f8fb"/>
+<path d="M 120,200 L 110,116" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 120,200 L 110,116" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 120,200 L 110,116" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 120,200 L 110,116" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 160,200 L 170,116" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 160,200 L 170,116" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 160,200 L 170,116" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 160,200 L 170,116" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="36" y="70" width="250" height="40" rx="12" fill="#d4b483" stroke="#7a5a32" stroke-width="2"/>
+<path d="M 110,70 Q 110,42 150,42 L 170,42 L 170,70" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 110,70 Q 110,42 150,42 L 170,42 L 170,70" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 110,70 Q 110,42 150,42 L 170,42 L 170,70" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 110,70 Q 110,42 150,42 L 170,42 L 170,70" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 170,110 L 210,150 Q 250,170 250,140 Q 250,110 210,120" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 170,110 L 210,150 Q 250,170 250,140 Q 250,110 210,120" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 170,110 L 210,150 Q 250,170 250,140 Q 250,110 210,120" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 170,110 L 210,150 Q 250,170 250,140 Q 250,110 210,120" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="200" cy="128" r="10" fill="#1b4f8a" stroke="#fff" stroke-width="3"/>
+<circle cx="197" cy="125" r="3" fill="#fff" opacity="0.85"/>
+<text x="270" y="180" fill="#1b4f8a" font-size="15" font-family="Microsoft JhengHei, PingFang TC, sans-serif">第一個半結</text>
+<circle cx="22" cy="22" r="14" fill="#163a5c"/><text x="22" y="27" text-anchor="middle" fill="#fff" font-size="14" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-weight="700">2</text>
+</svg>

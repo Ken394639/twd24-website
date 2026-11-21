@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e36b12"/></marker></defs>
+<rect width="400" height="230" fill="#f4f8fb"/>
+<path d="M 16,110 H 70 L 130,165 H 270 L 330,110 H 384" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 16,110 H 70 L 130,165 H 270 L 330,110 H 384" stroke="#0d2f58" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 16,110 H 70 L 130,165 H 270 L 330,110 H 384" stroke="#1b4f8a" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 16,110 H 70 L 130,165 H 270 L 330,110 H 384" stroke="#8eb6de" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 55,70 Q 30,110 60,145 Q 90,165 110,125" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 55,70 Q 30,110 60,145 Q 90,165 110,125" stroke="#8a3c08" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 55,70 Q 30,110 60,145 Q 90,165 110,125" stroke="#e36b12" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 55,70 Q 30,110 60,145 Q 90,165 110,125" stroke="#f6c59a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 345,70 Q 370,110 340,145 Q 310,165 290,125" stroke="#f4f8fb" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 345,70 Q 370,110 340,145 Q 310,165 290,125" stroke="#8a3c08" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 345,70 Q 370,110 340,145 Q 310,165 290,125" stroke="#e36b12" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 345,70 Q 370,110 340,145 Q 310,165 290,125" stroke="#f6c59a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="145" y="50" fill="#333" font-size="15" font-family="Microsoft JhengHei, PingFang TC, sans-serif">兩端受力才不會鬆</text>
+<text x="150" y="200" fill="#333" font-size="15" font-family="Microsoft JhengHei, PingFang TC, sans-serif">中間這段是鬆的</text>
+<circle cx="22" cy="22" r="14" fill="#163a5c"/><text x="22" y="27" text-anchor="middle" fill="#fff" font-size="14" font-family="Segoe UI, Microsoft JhengHei, sans-serif" font-weight="700">4</text>
+</svg>

@@ -1,0 +1,35 @@
+# 本機維護用（保留在資料夾，唔上傳 GitHub）
+_*
+*.py
+__pycache__/
+*.pyc
+.Python
+.venv/
+venv/
+
+# 預覽／測試頁（公開站唔需要）
+index-preview.html
+leader-demo.html
+chart-choices.html
+
+# 維護用 JSON（網站 HTML/JS 已已內嵌，瀏覽器唔讀）
+knot-map.json
+sas_publications.json
+sas_skill_links.json
+learning_hub.json
+
+# 私隱備忘（勿公開）
+請勿上載.txt
+
+# 編輯器
+.cursor/
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# 建置產物
+_site/
+backup/
+tools/
