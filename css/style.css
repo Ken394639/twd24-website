@@ -893,6 +893,43 @@ a:hover { text-decoration: underline; }
   font: inherit;
 }
 .award-photo img { width: 100%; height: auto; display: block; }
+/* 直向海報：電腦左右排，海報＋說明並排，減少空白同滾動 */
+.result-poster-layout { margin: 0 0 8px; }
+.result-poster-body > :first-child { margin-top: 0; }
+.result-poster-body h2 { margin-top: 18px; }
+@media (min-width: 901px) {
+  .result-poster-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 460px) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+  }
+  .award-photo--poster { margin: 0; }
+  .award-photo--poster .zoom {
+    width: 100%;
+    margin: 0;
+  }
+  .award-photo--poster img {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+  }
+}
+@media (min-width: 701px) and (max-width: 900px) {
+  .award-photo--poster .zoom {
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .award-photo--poster img {
+    width: auto;
+    max-width: min(100%, 520px);
+    max-height: 70vh;
+    height: auto;
+  }
+}
 .result-grid img {
   width: 100%;
   height: 100%;
@@ -1316,8 +1353,14 @@ p.cta-row,
   margin-top: 18px;
   margin-bottom: 0;
 }
+.page > p.glance-cta:has(> .btn) {
+  margin-bottom: 28px;
+}
 p:has(> .btn) .btn + .btn {
   margin-left: 10px;
+}
+.glance-cta .btn + .btn {
+  margin-left: 0;
 }
 .btn {
   display: inline-block;
@@ -1734,6 +1777,9 @@ footer a:hover { text-decoration: underline; }
     line-height: 1.3;
     border-bottom: 1px solid #eee;
   }
+  /* 特異性要高過桌面 .nav > ul > .has-sub:focus-within，否則再撳同一項收唔埋 */
+  .nav > ul > .has-sub:hover > .sub,
+  .nav > ul > .has-sub:focus-within > .sub,
   .nav .has-sub:hover > .sub,
   .nav .has-sub:focus-within > .sub { display: none; }
   .nav .sub {
@@ -1748,9 +1794,17 @@ footer a:hover { text-decoration: underline; }
     background: #f4f8fc;
     overflow: visible;
   }
+  .nav > ul > .has-sub.is-open > .sub,
+  .nav > ul > .has-sub.is-open:hover > .sub,
+  .nav > ul > .has-sub.is-open:focus-within > .sub,
   .nav .has-sub.is-open > .sub,
   .nav .has-sub.is-open:hover > .sub,
   .nav .has-sub.is-open:focus-within > .sub { display: block; }
+  .to-top-zone,
+  .to-end-zone {
+    display: none !important;
+    pointer-events: none;
+  }
   .nav .has-sub > a {
     display: flex;
     align-items: center;
@@ -2157,63 +2211,33 @@ a.album-card-body:hover { text-decoration: none; }
 .sas-pubs-fold {
   margin: 0.75rem 0 1rem;
 }
-#ebooks { scroll-margin-top: 116px; }
-.learn-hub {
-  margin: 0 0 24px;
-  padding: 16px 16px 18px;
-  border: 1px solid var(--line);
-  background: #f8fbfe;
-}
-.learn-hub > h2 {
-  margin: 0 0 8px;
-  font-size: 22px;
-}
-.learn-hub-lead {
-  margin: 0 0 14px;
-  color: var(--muted);
-  max-width: 42em;
-  font-size: 15px;
-  line-height: 1.6;
-}
-.learn-hub-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-.learn-hub-card {
-  border: 1px solid var(--line);
-  background: #fff;
-  padding: 12px 14px 14px;
-  min-height: 100%;
-}
-.learn-hub-card--wide {
-  grid-column: 1 / -1;
-}
-.learn-hub-card h3 {
-  margin: 0 0 4px;
-  font-size: 17px;
-  color: var(--blue-deep);
-}
-.learn-hub-audience {
-  margin: 0 0 8px;
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.4;
-}
-.learn-hub-card ul {
-  margin: 0;
-  padding-left: 1.15em;
-  font-size: 15px;
-  line-height: 1.55;
-}
-.learn-hub-card li { margin: 0 0 4px; }
-@media (max-width: 700px) {
-  .learn-hub-grid { grid-template-columns: 1fr; }
-  .learn-hub-card--wide { grid-column: auto; }
-}
 .sas-skills > p {
   margin: 0.35rem 0 0.6rem;
   color: #444;
+}
+.ig-caption {
+  margin: 12px 0 20px;
+  padding: 12px 14px 14px;
+  border: 1px solid var(--line);
+  background: #f8fbfe;
+}
+.ig-caption .copy-ig {
+  margin: 0 0 10px;
+}
+.ig-caption-text {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+  max-height: min(70vh, 520px);
+  overflow: auto;
+  user-select: text;
 }
 .knot-source {
   margin: 8px 0 16px;

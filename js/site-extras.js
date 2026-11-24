@@ -367,9 +367,13 @@
   const setupPageSearch = () => {
     const main = document.querySelector("main");
     if (!main) return;
-    const isDocs = /documents\.html/i.test(location.pathname) || document.title.includes("有用文件");
+    // 有用文件／繩結專頁：選單同「按對象揀」已夠導航，唔再顯示搜尋欄
+    const path = location.pathname || "";
+    if (/documents(?:-knots)?\.html/i.test(path) || document.title.includes("有用文件") || document.title.includes("繩結和編結")) {
+      return;
+    }
     const isActs = !!document.querySelector(".album-block");
-    if (!isDocs && !isActs) return;
+    if (!isActs) return;
     if (document.getElementById("page-search")) return;
     const box = document.createElement("label");
     box.className = "site-search page-search";
@@ -436,12 +440,45 @@
     });
     return map;
   };
+  const setupCopyButtons = () => {
+    document.querySelectorAll("[data-copy-target]").forEach((btn) => {
+      if (btn.dataset.copyReady) return;
+      btn.dataset.copyReady = "1";
+      btn.addEventListener("click", async () => {
+        const target = document.getElementById(btn.getAttribute("data-copy-target") || "");
+        if (!target) return;
+        const text = target.innerText || target.textContent || "";
+        const label = btn.textContent;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const range = document.createRange();
+            range.selectNodeContents(target);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+            document.execCommand("copy");
+            sel.removeAllRanges();
+          }
+          btn.textContent = "已複製";
+        } catch (error) {
+          btn.textContent = "請手動選取複製";
+        }
+        window.setTimeout(() => {
+          btn.textContent = label;
+        }, 1600);
+      });
+    });
+  };
+
   const boot = (posters, frames) => {
     posterByCode = posters || {};
     frameByAlbum = frames || {};
     toCards();
     setupLeaderFilter();
     setupPageSearch();
+    setupCopyButtons();
   };
   const withFrames = (posters) => {
     if (!document.querySelector(".album-block")) {

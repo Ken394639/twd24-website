@@ -1,2 +1,2 @@
-本旅網站保存的舊檔（源自早年校網童軍頁，約 2007–2014）。
-舊校網目錄不再對外連結；請使用本目錄內 PDF 及 record.html 舊照選輯。
+本目錄存放本旅歷史 PDF（約 2007–2014）。
+公開頁入口：documents.html#legacy、record.html#legacy-archive。

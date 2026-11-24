@@ -14,7 +14,10 @@ const setNavOpen = (open) => {
   nav.classList.toggle("is-open", open);
   toggle.setAttribute("aria-expanded", open ? "true" : "false");
   document.body.classList.toggle("nav-lock", open);
-  if (!open) nav.querySelectorAll(".has-sub.is-open").forEach((item) => item.classList.remove("is-open"));
+  if (!open) {
+    nav.querySelectorAll(".has-sub.is-open").forEach((item) => item.classList.remove("is-open"));
+    nav.querySelectorAll(".has-sub > a[aria-expanded]").forEach((link) => link.setAttribute("aria-expanded", "false"));
+  }
   fitNav();
 };
 if (toggle && nav) {
@@ -25,6 +28,7 @@ if (toggle && nav) {
     setNavOpen(!nav.classList.contains("is-open"));
   });
   nav.querySelectorAll(".has-sub > a").forEach((link) => {
+    link.setAttribute("aria-expanded", link.parentElement.classList.contains("is-open") ? "true" : "false");
     link.addEventListener("click", (event) => {
       const item = link.parentElement;
       const nested = item.parentElement.classList.contains("sub");
@@ -35,15 +39,24 @@ if (toggle && nav) {
         if (openItem === item) return;
         openItem.classList.remove("is-open");
         clearNested(openItem);
+        const openLink = openItem.querySelector(":scope > a");
+        if (openLink) openLink.setAttribute("aria-expanded", "false");
       });
       if (!willOpen) clearNested(item);
       item.classList.toggle("is-open", willOpen);
+      link.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      if (willOpen) link.blur();
       if (!willOpen || !narrow() || !nav.classList.contains("is-open")) return;
       requestAnimationFrame(() => {
         const delta = link.getBoundingClientRect().top - nav.getBoundingClientRect().top;
         nav.scrollTo({ top: nav.scrollTop + delta, behavior: "smooth" });
       });
     });
+  });
+  document.addEventListener("click", (event) => {
+    if (!narrow() || !nav.classList.contains("is-open")) return;
+    if (event.target.closest(".nav, .nav-toggle")) return;
+    setNavOpen(false);
   });
   nav.querySelectorAll(":scope > ul > .has-sub").forEach((item) => {
     item.addEventListener("mouseleave", () => {
@@ -259,64 +272,72 @@ if (slides.length && dots) {
   setInterval(() => show(index + 1), 5000);
 }
 
-const zone = document.createElement("div");
-zone.className = "to-top-zone";
-const toTop = document.createElement("button");
-toTop.type = "button";
-toTop.className = "to-top";
-toTop.textContent = "回到最頂";
-zone.appendChild(toTop);
-document.body.appendChild(zone);
-const placeToTop = () => {
-  zone.style.right = "0px";
-  zone.style.bottom = "0px";
-  const rect = toTop.getBoundingClientRect();
-  zone.style.right = (0 - (window.innerWidth - rect.right - 18)) + "px";
-  zone.style.bottom = (0 - (window.innerHeight - rect.bottom - 18)) + "px";
-};
-placeToTop();
-window.addEventListener("resize", placeToTop);
-toTop.addEventListener("click", () => {
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
-});
+const setupEdgeJump = () => {
+  if (narrow()) return;
+  if (document.querySelector(".to-top-zone")) return;
+  const zone = document.createElement("div");
+  zone.className = "to-top-zone";
+  const toTop = document.createElement("button");
+  toTop.type = "button";
+  toTop.className = "to-top";
+  toTop.textContent = "回到最頂";
+  zone.appendChild(toTop);
+  document.body.appendChild(zone);
+  const placeToTop = () => {
+    if (narrow()) return;
+    zone.style.right = "0px";
+    zone.style.bottom = "0px";
+    const rect = toTop.getBoundingClientRect();
+    zone.style.right = (0 - (window.innerWidth - rect.right - 18)) + "px";
+    zone.style.bottom = (0 - (window.innerHeight - rect.bottom - 18)) + "px";
+  };
+  placeToTop();
+  window.addEventListener("resize", placeToTop);
+  toTop.addEventListener("click", () => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  });
 
-const endZone = document.createElement("div");
-endZone.className = "to-end-zone";
-const toEnd = document.createElement("button");
-toEnd.type = "button";
-toEnd.className = "to-top";
-toEnd.textContent = "去到最底";
-endZone.appendChild(toEnd);
-document.body.appendChild(endZone);
-const placeToEnd = () => {
-  const header = document.querySelector(".top");
-  const tools = document.querySelector(".bar-tools");
-  endZone.style.right = "0px";
-  endZone.style.top = "0px";
-  endZone.style.left = "";
-  endZone.style.bottom = "";
-  const rect = toEnd.getBoundingClientRect();
-  const gap = 18;
-  let top = gap;
-  if (header && tools) {
-    const toolsRect = tools.getBoundingClientRect();
-    const buttonLeft = window.innerWidth - gap - rect.width;
-    const buttonRight = window.innerWidth - gap;
-    if (buttonRight > toolsRect.left && buttonLeft < toolsRect.right) {
-      top = Math.round(header.getBoundingClientRect().bottom) + 8;
+  const endZone = document.createElement("div");
+  endZone.className = "to-end-zone";
+  const toEnd = document.createElement("button");
+  toEnd.type = "button";
+  toEnd.className = "to-top";
+  toEnd.textContent = "去到最底";
+  endZone.appendChild(toEnd);
+  document.body.appendChild(endZone);
+  const placeToEnd = () => {
+    if (narrow()) return;
+    const headerEl = document.querySelector(".top");
+    const tools = document.querySelector(".bar-tools");
+    endZone.style.right = "0px";
+    endZone.style.top = "0px";
+    endZone.style.left = "";
+    endZone.style.bottom = "";
+    const rect = toEnd.getBoundingClientRect();
+    const gap = 18;
+    let top = gap;
+    if (headerEl && tools) {
+      const toolsRect = tools.getBoundingClientRect();
+      const buttonLeft = window.innerWidth - gap - rect.width;
+      const buttonRight = window.innerWidth - gap;
+      if (buttonRight > toolsRect.left && buttonLeft < toolsRect.right) {
+        top = Math.round(headerEl.getBoundingClientRect().bottom) + 8;
+      }
     }
-  }
-  endZone.style.right = (0 - (window.innerWidth - rect.right - gap)) + "px";
-  endZone.style.top = (top - rect.top) + "px";
+    endZone.style.right = (0 - (window.innerWidth - rect.right - gap)) + "px";
+    endZone.style.top = (top - rect.top) + "px";
+  };
+  placeToEnd();
+  window.addEventListener("resize", placeToEnd);
+  toEnd.addEventListener("click", () => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const top = document.documentElement.scrollHeight - window.innerHeight;
+    window.scrollTo({ top: Math.max(0, top), behavior: reduce ? "auto" : "smooth" });
+  });
 };
-placeToEnd();
-window.addEventListener("resize", placeToEnd);
-toEnd.addEventListener("click", () => {
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const top = document.documentElement.scrollHeight - window.innerHeight;
-  window.scrollTo({ top: Math.max(0, top), behavior: reduce ? "auto" : "smooth" });
-});
+setupEdgeJump();
+window.addEventListener("resize", setupEdgeJump);
 
 const zoomDialog = document.createElement("dialog");
 zoomDialog.id = "photo-zoom";

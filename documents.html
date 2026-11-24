@@ -1,11 +1,25 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* 舊書籤：繩結錨點轉專頁；學習資源總覽轉技評 */
+(function () {
+  var h = (location.hash || "").replace(/^#/, "");
+  if (!h) return;
+  if (h === "ebooks" || h.indexOf("hub-") === 0) {
+    location.replace((location.pathname || "documents.html").replace(/[^/]*$/, "documents.html") + "#sas");
+    return;
+  }
+  if (h === "knots" || h.indexOf("knots-") === 0 || h.indexOf("knot-") === 0) {
+    location.replace("documents-knots.html" + (h === "knots" ? "" : "#" + h));
+  }
+})();
+</script>
 <title>有用文件 · 荃灣第二十四旅</title>
 <link rel="icon" href="images/logo.png?v=2">
-<link rel="stylesheet" href="css/style.css?v=35">
+<link rel="stylesheet" href="css/style.css?v=49">
 </head>
 <body>
 <a class="skip" href="#main">跳至主要內容</a>
@@ -137,7 +151,7 @@
                 <li><a href="documents.html#scheme-rover">樂行童軍</a></li>
               </ul>
             </li>
-            <li><a href="documents.html#knots">繩結</a></li>
+            <li><a href="documents-knots.html">繩結</a></li>
             <li><a href="documents.html#badges">獎章</a></li>
             <li><a href="documents.html#rules">政策與安全</a></li>
             <li><a href="documents.html#legacy">歷史檔案</a></li>
@@ -180,70 +194,17 @@
 </header>
 <main id="main" class="page">
   <h1>有用文件</h1>
-  <p>頁首「按對象揀」有<strong>新成員、家長、已宣誓成員</strong>三節；主頁<a href="index.html#guide-glance">按對象查</a>會跳去同一處。總會電子書、綱要同網上學習入口見下方<a href="#ebooks">學習資源總覽</a>。各支部新訓練綱要由 2026 年 8 月 15 日起生效。申請同集會時間見<a href="join.html">參加步驟</a>。</p>
-
-  <section id="ebooks" class="learn-hub" aria-labelledby="ebooks-h">
-    <h2 id="ebooks-h">學習資源總覽</h2>
-    <p class="learn-hub-lead">一頁搵技能篇網上版、支部綱要、「童」步學習同本旅繩結分步圖。技能考試細節仍以下面<a href="#sas">童軍技能</a>章為準；綱要全文在<a href="#scheme">訓練綱要</a>預覽。</p>
-    <div class="learn-hub-grid">
-      <article class="learn-hub-card" aria-labelledby="hub-sas">
-        <h3 id="hub-sas">技能篇網上版</h3>
-        <p class="learn-hub-audience">考露營、登山、繩結、先鋒等技評資歷</p>
-        <ul>
-          <li><a href="https://www2.sas.org.hk/%e7%ab%a5%e8%bb%8d%e6%8a%80%e8%83%bd%e7%af%87/">童軍技能篇總覽</a></li>
-          <li><a href="#sas-publications">本頁刊物・逐本電子書</a></li>
-          <li><a href="https://sites.google.com/scouting.org.hk/sascampcraft2nd">露營技能第2版</a> · <a href="https://sites.google.com/scouting.org.hk/sasmountaineering3rd">登山第3版</a></li>
-          <li><a href="https://sites.google.com/scouting.org.hk/sasknotting/%E9%9B%BB%E5%AD%90%E6%9B%B8">繩結第2版</a> · <a href="https://sites.google.com/scouting.org.hk/saspioneering4">先鋒第4版</a></li>
-          <li><a href="https://www2.sas.org.hk/c_syllabus/">課程範圍總表</a> · <a href="#sas">本頁各科目</a></li>
-        </ul>
-      </article>
-      <article class="learn-hub-card" aria-labelledby="hub-scheme">
-        <h3 id="hub-scheme">支部訓練綱要</h3>
-        <p class="learn-hub-audience">全支部・家長</p>
-        <ul>
-          <li><a href="#scheme-cub">幼童軍</a> · <a href="#scheme-scout">童軍</a> · <a href="#scheme-venture">深資</a> · <a href="#scheme-rover">樂行</a></li>
-          <li><a href="https://www.scout.org.hk/uploads/tc/circulars/23585/p022-26.pdf">新綱要過渡安排通告</a></li>
-        </ul>
-      </article>
-      <article class="learn-hub-card" aria-labelledby="hub-elearn">
-        <h3 id="hub-elearn">總會網上學習</h3>
-        <p class="learn-hub-audience">在家預習・跟片</p>
-        <ul>
-          <li><a href="https://sites.google.com/scouting.org.hk/training-branch-elearning/%E9%A6%96%E9%A0%81">「童」步學習平台</a></li>
-          <li><a href="https://sites.google.com/scouting.org.hk/training-branch-elearning/share/knot_pioneer">繩結及先鋒工程分享</a></li>
-          <li><a href="https://www.youtube.com/watch?v=JIk8U1MQbOc">香港童軍運動宣傳片</a></li>
-        </ul>
-      </article>
-      <article class="learn-hub-card" aria-labelledby="hub-twg">
-        <h3 id="hub-twg">本旅複習</h3>
-        <p class="learn-hub-audience">已宣誓成員</p>
-        <ul>
-          <li><a href="#knots-steps">繩結分步圖</a> · <a href="#knots-videos">跟片練習</a></li>
-          <li><a href="#knots">繩結與編結</a> · <a href="#badges">獎章</a></li>
-        </ul>
-      </article>
-      <article class="learn-hub-card learn-hub-card--wide" aria-labelledby="hub-info">
-        <h3 id="hub-info">資訊站與實體書</h3>
-        <p class="learn-hub-audience">領袖・家長</p>
-        <ul>
-          <li><a href="https://scoutsinfohub.org.hk/">童軍資訊站</a> · <a href="https://uniform.scouting.org.hk/">儀容與制服</a></li>
-          <li><a href="https://www.hkscoutshop.org.hk/">童軍物品供應社</a>（繩藝、船藝技能篇等僅實體版）</li>
-          <li><a href="#rules">本頁：政策與安全</a></li>
-        </ul>
-      </article>
-    </div>
-  </section>
+  <p>頁首「按對象揀」有<strong>新成員、家長、已宣誓成員</strong>三節；主頁<a href="index.html#guide-glance">按對象查</a>會跳去同一處。技能篇電子書同技評見<a href="#sas">童軍技能</a>；繩結見<a href="documents-knots.html">繩結專頁</a>；綱要見本頁<a href="#scheme">訓練綱要</a>。各支部新訓練綱要由 2026 年 8 月 15 日起生效。申請同集會時間見<a href="join.html">參加步驟</a>。</p>
 
   <nav class="jump" aria-label="按對象">
     <p class="jump-title">按對象揀</p>
-    <a href="#ebooks">學習資源</a>
     <a href="#for-new">新成員</a>
     <a href="#for-parents">家長</a>
     <a href="#for-members">已宣誓成員</a>
     <a href="#for-leaders">領袖</a>
     <a href="#uniform">制服佩戴</a>
     <a href="#scheme">訓練綱要</a>
-    <a href="#knots">繩結</a>
+    <a href="documents-knots.html">繩結</a>
     <a href="#sas">童軍技能</a>
     <a href="#badges">獎章</a>
     <a href="#rules">政策與安全</a>
@@ -262,7 +223,7 @@
       <li><strong>深資童軍，15–20 歲。</strong>星期六 14:00–17:00。教育目標是「自務自治・明日領袖」。技能侧重遠足、烹飪、遠征和對外交流，活動由自己籌劃。做人方面學自立、與人共事、考慮他人，考試期間也會一起溫習，為踏入社會做好準備。</li>
       <li><strong>樂行童軍，18–25 歲。</strong>每月一次。教育目標是「服務為本・國際視野」。技能按活動需要再用露營、烹飪、急救和籌辦。做人方面是服務：自己商量團務，協助其他支部，也參與社區服務。</li>
     </ul>
-    <p>平日有遊戲、繩結、遠足、露營和服務，深淺按年齡不同。成員會一同溫習。領袖有男有女。</p>
+    <p>平日有遊戲、繩結、遠足、露營和服務，深淺按年齡不同。領袖有男有女。</p>
     <h3>怎樣加入</h3>
     <ol>
       <li>先對上面的年齡。</li>
@@ -275,10 +236,10 @@
     <p>來了幾次、認識旅團之後，會在集會上宣誓，成為正式成員。宣誓是當眾答應三件事：對神明、對國家盡責任；對別人要幫助；對規律必遵行。幼童軍和童軍的全文、以及各自的規律，以總會<a href="https://www.scout.org.hk/tc/scouting/promise-law.html">誓詞與規律</a>為準。承諾在準備宣誓時和領袖一起讀。</p>
     <h3>入會前可以先看的影片</h3>
     <p>先看總會這條宣傳片，了解童軍平日在做什麼：<a href="https://www.youtube.com/watch?v=JIk8U1MQbOc">香港童軍運動宣傳片（廣東話）</a>。</p>
-    <p>繩結在家溫習，先睇本頁<a href="#knots-steps">總會《繩結》分步圖</a>。想跟片，可到<a href="https://sites.google.com/scouting.org.hk/training-branch-elearning/share/knot_pioneer">「童」步學習 · 繩結及先鋒工程</a>，或撳<a href="#knots-videos">跟片練習</a>。集會聽本旅領袖講。</p>
+    <p>繩結在家溫習，先睇<a href="documents-knots.html#knots-steps">總會《繩結》分步圖</a>。想跟片，可到<a href="https://sites.google.com/scouting.org.hk/training-branch-elearning/share/knot_pioneer">「童」步學習 · 繩結及先鋒工程</a>，或撳<a href="documents-knots.html#knots-videos">跟片練習</a>。集會聽本旅領袖講。</p>
     <ul>
-      <li><a href="#knot-coil">收繩</a>：活動完結要把繩捲好。</li>
-      <li><a href="#knot-reef">平結</a>：幼童軍最先用到，綁鞋帶是同一類結。</li>
+      <li><a href="documents-knots.html#knot-coil">收繩</a>：活動完結要把繩捲好。</li>
+      <li><a href="documents-knots.html#knot-reef">平結</a>：幼童軍最先用到，綁鞋帶是同一類結。</li>
     </ul>
     <h3>官方表格</h3>
     <ul>
@@ -293,10 +254,10 @@
     <h2>家長</h2>
     <h3>子女會去哪裡</h3>
     <p>集會在仁濟醫院林百欣中學（荃灣荃景圍 145–165 號），用廣東話。幼童軍 6–11 歲，星期六 15:00–17:00。童軍 11–15 歲、深資童軍 15–20 歲，星期六 14:00–17:00。樂行童軍 18–25 歲，每月一次。由荃威花園或荃灣中心步行約五分鐘。</p>
-    <p>他們按年齡學兩類東西。一是童軍技能：幼童軍由綁鞋帶、平結、手作和短途遠足開始；童軍學摺衫、繩結、先鋒工程、露營、野外烹飪和遠足；深資自己籌遠足、烹飪、遠征和交流；樂行按需要再用露營、烹飪、急救和籌辦。二是做人：幼童軍學盡所能、先顧別人和守紀律；童軍在小隊和宿營裡學帶人、尊重他人；深資學自立、與人共事；樂行以服務社群為主。旅團亦會安排成員一同溫習。</p>
+    <p>他們按年齡學兩類東西。一是童軍技能：幼童軍由綁鞋帶、平結、手作和短途遠足開始；童軍學摺衫、繩結、先鋒工程、露營、野外烹飪和遠足；深資自己籌遠足、烹飪、遠征和交流；樂行按需要再用露營、烹飪、急救和籌辦。二是做人：幼童軍學盡所能、先顧別人和守紀律；童軍在小隊和宿營裡學帶人、尊重他人；深資學自立、與人共事；樂行以服務社群為主。</p>
     <h3>你現在要做的事</h3>
     <p>填<a href="https://docs.google.com/forms/d/e/1FAIpQLSe7oQyxBVJnE-P_0_-1Vw58znKZBa8_nJDrMNaN5IyqU7UAsw/viewform">本旅申請表</a>，留下可聯絡的資料，然後等旅團通知。支部確認後，到<a href="https://www.hkscoutshop.org.hk/">童軍物品供應社</a>買制服。幼童軍由家長帶小朋友去，當面清楚選適合的尺寸。童軍由旅團在星期六帶領去買。宣誓是入會時當眾答應：對神明、對國家盡責任，對別人要幫助，對規律必遵行。全文見<a href="https://www.scout.org.hk/tc/scouting/promise-law.html">誓詞與規律</a>。</p>
-    <p>可以和子女一起先看<a href="https://www.youtube.com/watch?v=JIk8U1MQbOc">香港童軍運動宣傳片</a>，繩結則以<a href="#knots-steps">總會分步圖</a>或<a href="https://sites.google.com/scouting.org.hk/training-branch-elearning/share/knot_pioneer">「童」步學習</a>在家預習。</p>
+    <p>可以和子女一起先看<a href="https://www.youtube.com/watch?v=JIk8U1MQbOc">香港童軍運動宣傳片</a>，繩結則以<a href="documents-knots.html#knots-steps">總會分步圖</a>或<a href="https://sites.google.com/scouting.org.hk/training-branch-elearning/share/knot_pioneer">「童」步學習</a>在家預習。</p>
     <h3>獎章和升學</h3>
     <p>金紫荊獎章在小學考取，證書由總會簽發。林百欣中學 2026/2027 年中一自行分配，課外活動（包括獎項）佔 10%，申請要交獎項資料夾，證書可以放進去。總領袖獎章在中學年期考取，證書由總會簽發，可以寫進學生學習概覽，大學聯招時給院校看。出處和限度見<a href="faq.html#awards-study">常見問題</a>。</p>
     <h3>安全和進度</h3>
@@ -311,10 +272,10 @@
     <h2>已宣誓成員</h2>
     <p>宣誓之後你是正式成員。</p>
     <h3>平日怎樣過</h3>
-    <p>幼童軍、童軍和深資童軍每星期六回林百欣中學集會，樂行童軍每月一次，都用廣東話。穿本旅制服，旅巾是淺藍色、白邊。考到的章用線縫上，縫法見<a href="#sew">縫章說明</a>。成員會一同溫習。</p>
+    <p>幼童軍、童軍和深資童軍每星期六回林百欣中學集會，樂行童軍每月一次，都用廣東話。穿本旅制服，旅巾是淺藍色、白邊。考到的章用線縫上，縫法見<a href="#sew">縫章說明</a>。</p>
     <p>訓練綱要在 2026 年 8 月 15 日改用新版本。該日之前宣誓的人，可以按總會通告使用過渡安排。四個支部的綱要在本頁<a href="#scheme">可以直接看</a>。</p>
     <h3>你要學的繩結</h3>
-    <p>本旅的基本繩結有六個：平結、雙套結、繫木結、曳木結、稱人結、接繩結。基本編結有三個：四方編結、十字編結、八字編結。結法以總會訓練署的評審為準，用途和打法要點見<a href="#knots">繩結和編結</a>。</p>
+    <p>本旅的基本繩結有六個：平結、雙套結、繫木結、曳木結、稱人結、接繩結。基本編結有三個：四方編結、十字編結、八字編結。結法以總會訓練署的評審為準，用途和打法要點見<a href="documents-knots.html">繩結和編結</a>。</p>
     <ul>
       <li><strong>幼童軍。</strong>幼童軍獎章先會自己綁鞋帶，並知道平結。歷奇章學接繩結、繫木結。高級歷奇章學雙套結、稱人結。金紫荊獎章的簡單先鋒工程是選修，要在領袖面前用八字編結、四方編結、十字編結做一件簡單紮作；這枚章的露營是必修。繩結章一次考齊六個結和三個編結，包括曳木結，並做兩件小型紮作。</li>
       <li><strong>童軍。</strong>基本是上面六個結和三個編結。團裡另外教八字結、貓爪結、縮繩結。探索獎章的先鋒工程還列有半結、反手結，以及收繩和保養繩索。標準獎章列有三個基本編結，同時列有圓周編結和展立編結。貓爪結寫在先鋒工程專科徽章裡。</li>
@@ -323,10 +284,10 @@
     <h3>章戴在哪裡</h3>
     <p>右袖有旅章、區章。旅團獲頒優異旅團的那一年，右袖可以戴當年的「該年優異旅團」章。進度性獎章在右胸，會員章在左胸。每個位置的圖在下面<a href="#wear">佩戴</a>。</p>
     <h3>在家複習</h3>
-    <p>按你下一枚章要考的結，在家可開<a href="#knots-steps">總會分步圖</a>，或到<a href="#knots-videos">跟片練習</a>選條片。集會上以本旅領袖示範為準。</p>
+    <p>按你下一枚章要考的結，在家可開<a href="documents-knots.html#knots-steps">總會分步圖</a>，或到<a href="documents-knots.html#knots-videos">跟片練習</a>選條片。集會上以本旅領袖示範為準。</p>
     <h3>要查的文件</h3>
     <ul>
-      <li><a href="#ebooks">學習資源總覽</a>（技能篇網上版、綱要、「童」步學習、本旅分步圖）</li>
+      <li><a href="#sas">童軍技能</a>（技能篇電子書、技評科目）· <a href="documents-knots.html">繩結專頁</a> · <a href="#scheme">訓練綱要</a></li>
       <li><a href="https://prog.scouting.org.hk/cub/wp-content/uploads/2025/07/%E5%B9%BC%E7%AB%A5%E8%BB%8D%E8%A8%93%E7%B7%B4%E7%B6%B1%E8%A6%812025%E5%B9%B47%E6%9C%88%E7%B6%B2%E4%B8%8A%E6%93%AC%E5%AE%9A%E7%B0%A1%E6%98%93%E7%89%88.pdf">幼童軍訓練綱要（網上簡易版 PDF）</a></li>
       <li><a href="https://scoutsinfohub.org.hk/ScoutTrainingScheme/FullVersion-zh.pdf">童軍訓練綱要全文（PDF）</a>（2026 年 2 月第四版）</li>
       <li><a href="https://sites.google.com/scouting.org.hk/venture">深資童軍支部專頁</a></li>
@@ -341,7 +302,7 @@
 
   <section id="for-leaders" class="doc-who">
     <h2>領袖</h2>
-    <p>規條、安全、訓練同行政，以下是常用入口；細節以總會最新通告為準。教繩結時，可讓成員先看<a href="#knots-steps">總會分步圖</a>或<a href="#knots-videos">跟片練習</a>，集會仍以當面示範為準。</p>
+    <p>規條、安全、訓練同行政，以下是常用入口；細節以總會最新通告為準。教繩結時，可讓成員先看<a href="documents-knots.html#knots-steps">總會分步圖</a>或<a href="documents-knots.html#knots-videos">跟片練習</a>，集會仍以當面示範為準。</p>
     <ul>
       <li><a href="https://www.scout.org.hk/tc/scouting/policy-guidelines/por/index.html">政策、組織及規條（POR）</a></li>
       <li><a href="https://www.scout.org.hk/uploads/tc/circulars/20647/pc062025c_safe-from-harm-policy_c.pdf">保護童軍成員免受傷害政策</a></li>
@@ -574,342 +535,21 @@
     <figcaption>手冊第172頁。領袖的優異旅團章同樣在右袖最底。</figcaption>
   </figure>
 
-  <h2 id="knots">繩結和編結</h2>
-  <p>本旅教的基本繩結有六個。基本編結有三個。八字結、貓爪結和縮繩結是童軍團額外教的。幼童軍和童軍按總會綱要，在不同獎章用到其中幾項。</p>
-  <p>結法以總會訓練署童軍技能評審為準。在家可先<a href="#knots-steps">睇下面分步圖</a>，或<a href="#knots-videos">跟片練習</a>；圖片出自總會<a href="https://sites.google.com/scouting.org.hk/sasknotting/%E9%9B%BB%E5%AD%90%E6%9B%B8">《繩結》第2版</a>。集會以本旅領袖當面示範為準。</p>
-  <h3 id="knots-videos">跟片練習（可要可不要）</h3>
-  <p>總會冇逐結電視教材；在家以<a href="#knots-steps">分步圖</a>同總會<a href="https://sites.google.com/scouting.org.hk/sasknotting/%E9%9B%BB%E5%AD%90%E6%9B%B8">《繩結》</a>為主。想聽人講，可到訓練署<a href="https://sites.google.com/scouting.org.hk/training-branch-elearning/share/knot_pioneer">「童」步學習 · 繩結及先鋒工程</a>。下面 YouTube 條片同「童」步學習入面轉介嘅「童軍繩結」一樣，可選睇；集會以本旅領袖當面教為準。</p>
-  <p><a href="https://www.youtube.com/playlist?list=PLCtaA298P1rYTLlp_ElzRCGxViOKg95JO">完整播放清單</a>（約六十條，含本旅暫不教的進階結）。</p>
-  <h4>六個基本繩結</h4>
-  <ul>
-    <li><a href="https://youtu.be/1re2fwTmWAQ">平結</a> · <a href="#knot-reef">分步圖</a></li>
-    <li><a href="https://youtu.be/0mDTIrQQuHs">雙套結</a> · <a href="#knot-clove">分步圖</a></li>
-    <li><a href="https://youtu.be/ojtW676HvVg">繫木結</a> · <a href="#knot-round">分步圖</a></li>
-    <li><a href="https://youtu.be/IJKP4KGJfLc">曳木結</a> · <a href="#knot-timber">分步圖</a></li>
-    <li><a href="https://youtu.be/80DaVBkCBac">稱人結</a> · <a href="#knot-bowline">分步圖</a></li>
-    <li><a href="https://youtu.be/wwVS9kE0TKY">接繩結</a> · <a href="#knot-sheet">分步圖</a></li>
-  </ul>
-  <h4>三個基本編結</h4>
-  <ul>
-    <li><a href="https://youtu.be/DWtdGby1Eok">四方編結</a> · <a href="#knot-square">分步圖</a></li>
-    <li><a href="https://youtu.be/8YcFVSfbg_w">十字編結</a> · <a href="#knot-diag">分步圖</a></li>
-    <li><a href="https://youtu.be/QVEaIBy0mJQ">八字編結</a> · <a href="#knot-f8l">分步圖</a></li>
-  </ul>
-  <h4>童軍額外教的結</h4>
-  <ul>
-    <li><a href="https://youtu.be/udmUELbzanM">八字結</a> · <a href="#knot-fig8">分步圖</a></li>
-    <li><a href="https://youtu.be/-3m0zQvrUq4">貓爪結</a> · <a href="#knot-cat">分步圖</a></li>
-    <li><a href="https://youtu.be/9lmS6z1okzw">縮繩結</a> · <a href="#knot-sheep">分步圖</a></li>
-  </ul>
-  <h4>收繩，以及綱要另列的結</h4>
-  <ul>
-    <li><a href="https://youtu.be/E06USUfPwPw">繩的結構</a>、<a href="https://youtu.be/Dwv1TbetTCc">收繩</a> · <a href="#knot-coil">收繩分步圖</a></li>
-    <li>童軍探索獎章還列有<a href="https://youtu.be/zwPImCTZXGA">半結</a>（<a href="#knot-half">分步圖</a>）和<a href="https://youtu.be/2SNusbLJZ94">反手結</a>（<a href="#knot-overhand">分步圖</a>）。</li>
-    <li>童軍標準獎章還列有<a href="https://youtu.be/Oi4IFTsSb4U">圓周編結</a>（<a href="#knot-roundlash">分步圖</a>）和<a href="https://youtu.be/ILAmD4CBOUI">展立編結</a>（<a href="#knot-shear">分步圖</a>）。</li>
-  </ul>
-
-  <!-- knot-steps:start -->
-  <h3 id="knots-steps">總會《繩結》分步圖</h3>
-  <p class="knot-source">圖片摘自香港童軍總會訓練署《童軍技能評審計劃・繩結》第2版分章 PDF，供本旅成員在家溫習；考章同集會以總會版本為準。 
-<a href="https://sites.google.com/scouting.org.hk/sasknotting/%E9%9B%BB%E5%AD%90%E6%9B%B8">開電子書</a>；
-<a href="https://sites.google.com/scouting.org.hk/sasknotting/%E5%88%86%E7%AB%A0%E9%96%B1%E8%AE%80">分章閱讀</a>（含綁紮繩結）。
- 分章 PDF：<a href="https://drive.google.com/file/d/1C0wU4ATibVf1NQ3tKcW9AOc0sbz95l99/view">連接繩結</a>、<a href="https://drive.google.com/file/d/1bCFRDEdcqA0R0e10LLfpvLg1dxotuGCB/view">栓綁繩結</a>、<a href="https://drive.google.com/file/d/1YEq2VDNYCrLghguw4mir0-wyAE4Ru0EI/view">套環</a>、<a href="https://drive.google.com/file/d/1Vhb0G91Y46jiiaR_nvMABNiQoVvb1kTJ/view">編結</a>、<a href="https://drive.google.com/file/d/1DDaPKNq830Zy9_Qz_QBvPPXJt_di7Ttl/view">固定繩結</a>、<a href="https://drive.google.com/file/d/1tQFmUdmUIb0J1W4L1MoVyrqBrEQcCbHQ/view">盤捲繩纜</a>。</p>
-  <h4>六個基本繩結</h4>
-  <details class="fold knot-fold" id="knot-reef" open>
-    <summary><span><b>平結</b><small>接兩條粗幼相近的繩，也用來紮包裹。綁鞋帶是同一類結。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/binding/p02.jpg" alt="平結：簡介、別名與成品。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介、別名與成品。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/binding/p03.jpg" alt="平結：交叉搭繩、左右各繞一圈、拉緊與解開方法。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>交叉搭繩、左右各繞一圈、拉緊與解開方法。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-clove">
-    <summary><span><b>雙套結</b><small>把繩拴在棍或樹幹上；編結收尾也常用。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/binding/p06.jpg" alt="雙套結：簡介與用途。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介與用途。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/binding/p07.jpg" alt="雙套結：方法一：徒手打（正、反手繩圈）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>方法一：徒手打（正、反手繩圈）。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/binding/p08.jpg" alt="雙套結：方法二：在柱狀物上繞圈（步驟一至五）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>方法二：在柱狀物上繞圈（步驟一至五）。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-round">
-    <summary><span><b>繫木結</b><small>營釘結；繩繞物件兩圈再加兩個半結。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/hitch/p20.jpg" alt="繫木結：簡介、別名與成品。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介、別名與成品。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/hitch/p21.jpg" alt="繫木結：繞兩圈與兩個半結（步驟一至五）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>繞兩圈與兩個半結（步驟一至五）。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-timber">
-    <summary><span><b>曳木結</b><small>拖曳木材等長條物件；探索獎章另列的石錨結＝曳木結加半索。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/binding/p10.jpg" alt="曳木結：簡介；繞過物件、繩頭繞繩身（步驟一至二）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介；繞過物件、繩頭繞繩身（步驟一至二）。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/binding/p11.jpg" alt="曳木結：穿入空隙、繞繩身、收緊（步驟三至五）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>穿入空隙、繞繩身、收緊（步驟三至五）。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-bowline">
-    <summary><span><b>稱人結</b><small>固定繩圈的套環結；戶外紮營及先鋒工程常用。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/loop/p10.jpg" alt="稱人結：簡介、用途與童軍故事。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介、用途與童軍故事。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/loop/p11.jpg" alt="稱人結：打小繩圈、繞繩身、穿回繩圈（步驟一至五）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>打小繩圈、繞繩身、穿回繩圈（步驟一至五）。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-sheet">
-    <summary><span><b>接繩結</b><small>接駁粗幼相同或不同的兩條繩。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/bend/p02.jpg" alt="接繩結：開口繩耳與穿繩頭（步驟一至二）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>開口繩耳與穿繩頭（步驟一至二）。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/bend/p03.jpg" alt="接繩結：繩頭繞過繩耳、拉緊（步驟三至四）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>繩頭繞過繩耳、拉緊（步驟三至四）。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <h4>三個基本編結</h4>
-  <details class="fold knot-fold" id="knot-square">
-    <summary><span><b>四方編結</b><small>直棍與橫棍成十字時紮緊做支架。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/lashing/p14.jpg" alt="四方編結：簡介；柱上雙套結起結與首繞。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介；柱上雙套結起結與首繞。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/lashing/p15.jpg" alt="四方編結：繞棍、勒編、雙套結收尾。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>繞棍、勒編、雙套結收尾。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-diag">
-    <summary><span><b>十字編結</b><small>兩棍交疊時紮緊，角度不拘。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/lashing/p02.jpg" alt="十字編結：簡介；曳木結起結與首三繞。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介；曳木結起結與首三繞。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/lashing/p03.jpg" alt="十字編結：改向繞圈、勒編、雙套結收尾。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>改向繞圈、勒編、雙套結收尾。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-f8l">
-    <summary><span><b>八字編結</b><small>以 8 字形在棍間來回繞圈，可做三腳架。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/lashing/p06.jpg" alt="八字編結：簡介；三棍並排、雙套結起結與 8 字形繞圈（步驟一至三）。繞滿圈後的勒編與收尾，電子書內與三腳架編結後段相同。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介；三棍並排、雙套結起結與 8 字形繞圈（步驟一至三）。繞滿圈後的勒編與收尾，電子書內與三腳架編結後段相同。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <h4>童軍額外教的結</h4>
-  <details class="fold knot-fold" id="knot-fig8">
-    <summary><span><b>八字結</b><small>繩端固定結，防止繩頭滑出。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/stopper/p06.jpg" alt="八字結：簡介；繩端做繩圈（步驟一）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介；繩端做繩圈（步驟一）。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/stopper/p07.jpg" alt="八字結：繞過主繩、穿繩眼、拉緊（步驟二至五）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>繞過主繩、穿繩眼、拉緊（步驟二至五）。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-cat">
-    <summary><span><b>貓爪結</b><small>掛在鉤上承受拉力。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/hitch/p06.jpg" alt="貓爪結：簡介與雙繩圈起結（步驟一）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介與雙繩圈起結（步驟一）。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/hitch/p07.jpg" alt="貓爪結：扭索、對稱繩圈與掛鉤（步驟二至四）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>扭索、對稱繩圈與掛鉤（步驟二至四）。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-sheep">
-    <summary><span><b>縮繩結</b><small>暫時收短繩索或避開損壞一段。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/hitch/p04.jpg" alt="縮繩結：方法一：三繩環與收緊。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>方法一：三繩環與收緊。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/hitch/p05.jpg" alt="縮繩結：方法二：折 Z 形與半結固定。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>方法二：折 Z 形與半結固定。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <h4>綱要另列</h4>
-  <details class="fold knot-fold" id="knot-half">
-    <summary><span><b>半結</b><small>很多複合結的組成部分；單獨使用不牢。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/hitch/p02.jpg" alt="半結：簡介與繞過物件（步驟一）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介與繞過物件（步驟一）。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/hitch/p03.jpg" alt="半結：搭在繩身、穿繩圈、拉緊（步驟二至四）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>搭在繩身、穿繩圈、拉緊（步驟二至四）。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-overhand">
-    <summary><span><b>反手結</b><small>最基本的繩端固定結。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/stopper/p02.jpg" alt="反手結：簡介與做繩圈（步驟一）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介與做繩圈（步驟一）。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/stopper/p03.jpg" alt="反手結：繩頭穿圈、拉緊（步驟二至三）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>繩頭穿圈、拉緊（步驟二至三）。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-roundlash">
-    <summary><span><b>圓周編結</b><small>接棍編結；兩棍並排重疊加長。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/lashing/p10.jpg" alt="圓周編結：簡介（別名圓周編結）；起結與繞圈開始。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介（別名圓周編結）；起結與繞圈開始。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/lashing/p11.jpg" alt="圓周編結：繞滿、雙套結收尾；上下各紮一次。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>繞滿、雙套結收尾；上下各紮一次。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-shear">
-    <summary><span><b>展立編結</b><small>剪立編結；兩棍紮好後分開做人字架。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/lashing/p12.jpg" alt="展立編結：簡介與用途。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>簡介與用途。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/lashing/p13.jpg" alt="展立編結：雙套結起結、繞圈、勒編與收尾（步驟一至三）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>雙套結起結、繞圈、勒編與收尾（步驟一至三）。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <details class="fold knot-fold" id="knot-coil">
-    <summary><span><b>收繩（消防盤捲法）</b><small>盤捲後方便掛起；較幼短的繩常用。</small></span></summary>
-    <div class="fold-body">
-      <ol class="knot-steps knot-steps--book">
-        <li>
-          <img src="images/knots/sas/coil/p02.jpg" alt="收繩（消防盤捲法）：盤捲與預留繩圈（步驟一至二）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>盤捲與預留繩圈（步驟一至二）。</p>
-        </li>
-        <li>
-          <img src="images/knots/sas/coil/p03.jpg" alt="收繩（消防盤捲法）：穿過盤捲、收緊收尾（步驟三至四）。" width="1680" height="2450" loading="lazy" decoding="async">
-          <p>穿過盤捲、收緊收尾（步驟三至四）。</p>
-        </li>
-      </ol>
-      <p class="knot-video"><a href="#knots-videos">同題跟片練習</a></p>
-    </div>
-  </details>
-  <!-- knot-steps:end -->
-  <h3 id="knots-cub">幼童軍用哪些</h3>
-  <p>依總會《幼童軍訓練綱要》2025 年 8 月網上簡易版，繩結隨進度加上。本旅幼童軍集會也會先學綁鞋帶。</p>
-  <ul>
-    <li><strong>幼童軍獎章。</strong>自己綁鞋帶，並知道平結的結法和用途。</li>
-    <li><strong>幼童軍歷奇章。</strong>戶外活動裡的繩結是必修：接繩結、繫木結。</li>
-    <li><strong>幼童軍高級歷奇章。</strong>繩結是必修：雙套結、稱人結。</li>
-    <li><strong>金紫荊獎章。</strong>簡單先鋒工程要在領袖面前完成八字編結、四方編結和十字編結，再用它們做一件簡單紮作，例如戰車架。這項屬戶外挑戰的選修，露營是必修。</li>
-    <li><strong>繩結章。</strong>一次考齊上面六個結和三個編結，包括曳木結，並說出用途；再用它們做兩件小型紮作，例如旗杆架、衣鞋架、戰車架或羅馬炮架。</li>
-  </ul>
-  <p>綱要見<a href="#scheme-cub">幼童軍訓練綱要</a>。</p>
-  <h3 id="knots-scout">童軍用哪些</h3>
-  <p>本旅童軍以六個繩結和三個基本編結為基本。八字結、貓爪結和縮繩結是童軍團額外教的。</p>
-  <p>總會童軍探索獎章的先鋒工程，列有這六個結，同時列有八字結、縮繩結、半結和反手結，以及收繩和保養繩索。標準獎章的先鋒工程，列有四方編結、十字編結和八字編結，同時列有圓周編結和展立編結。貓爪結寫在先鋒工程專科徽章裡，和縮繩結、雙接繩結等一併考核。</p>
-  <p>綱要見<a href="#scheme-scout">童軍訓練綱要</a>。</p>
+  <section id="knots" class="doc-who">
+  <h2>繩結和編結</h2>
+  <p>本旅教的基本繩結有六個、基本編結有三個；八字結、貓爪結和縮繩結是童軍團額外教的。分步圖、跟片練習與支部要求已獨立成頁，手機開「有用文件」時唔使一次載入全部繩結圖。</p>
+  <p class="cta-row"><a class="btn" href="documents-knots.html">開繩結專頁</a>
+  <a href="documents-knots.html#knots-steps">分步圖</a> ·
+  <a href="documents-knots.html#knots-videos">跟片練習</a> ·
+  <a href="documents-knots.html#knots-cub">幼童軍用哪些</a> ·
+  <a href="documents-knots.html#knots-scout">童軍用哪些</a></p>
+  <p>圖片出自總會<a href="https://sites.google.com/scouting.org.hk/sasknotting/%E9%9B%BB%E5%AD%90%E6%9B%B8">《繩結》第2版</a>。集會以本旅領袖當面示範為準。</p>
+  </section>
 
   <!-- sas-skills:start -->
   <section id="sas-skills" class="sas-skills">
   <h2 id="sas">童軍技能評審（技評局）</h2>
-  <p>下面連去技評局<a href="#sas-publications">童軍技能篇刊物</a>（可展開揀電子書）同<a href="https://www2.sas.org.hk/c_syllabus/">課程範圍</a>。所有網上版快捷入口亦在<a href="#ebooks">學習資源總覽</a>。考露營、登山、繩結、先鋒工程、船藝等資歷，以此為準；本旅集會仍以領袖示範同支部綱要為主。</p>
+  <p>下面連去技評局<a href="#sas-publications">童軍技能篇刊物</a>（可展開揀電子書）同<a href="https://www2.sas.org.hk/c_syllabus/">課程範圍</a>。考露營、登山、繩結、先鋒工程、船藝等資歷，以此為準；本旅集會仍以領袖示範同支部綱要為主。</p>
   <h3>總覽</h3>
   <ul>
     <li><a href="https://www2.sas.org.hk/">童軍技能評審局主頁</a></li>
@@ -923,30 +563,30 @@
     <div class="fold-body">
       <p><a href="https://www2.sas.org.hk/%e7%ab%a5%e8%bb%8d%e6%8a%80%e8%83%bd%e7%af%87/">童軍技能篇總覽頁</a>（全部封面同購書資訊）</p>
       <ul class="sas-pub-list">
-        <li><a href="https://sites.google.com/scouting.org.hk/sascampcraft2nd">露營技能 · 第2版（網上版）</a></li>
-        <li><a href="https://sites.google.com/scouting.org.hk/sasmountaineering3rd">登山技能 · 第3版（網上版）</a></li>
+        <li><a href="https://sites.google.com/scouting.org.hk/sascampcraft2nd/%E9%9B%BB%E5%AD%90%E6%9B%B8">露營技能 · 第2版（網上版）</a></li>
+        <li><a href="https://sites.google.com/scouting.org.hk/sasmountaineering3rd/%E9%9B%BB%E5%AD%90%E6%9B%B8">登山技能 · 第3版（網上版）</a></li>
         <li>繩結 · 第2版（網上版）
           <ul>
             <li><a href="https://sites.google.com/scouting.org.hk/sasknotting">技能篇電子書首頁</a></li>
             <li><a href="https://sites.google.com/scouting.org.hk/sasknotting/%E9%9B%BB%E5%AD%90%E6%9B%B8">開電子書</a> · <a href="https://sites.google.com/scouting.org.hk/sasknotting/%E5%88%86%E7%AB%A0%E9%96%B1%E8%AE%80">分章閱讀</a></li>
-            <li><a href="#knots-steps">本旅分步圖（六基本結等）</a></li>
+            <li><a href="documents-knots.html#knots-steps">本旅分步圖（六基本結等）</a></li>
           </ul>
         </li>
-        <li><a href="https://sites.google.com/scouting.org.hk/saspioneering4">先鋒工程 · 第4版（網上版）</a></li>
+        <li><a href="https://sites.google.com/scouting.org.hk/saspioneering4/%E9%9B%BB%E5%AD%90%E6%9B%B8">先鋒工程 · 第4版（網上版）</a></li>
         <li>繩藝 · 初版（僅實體版，<a href="https://www.hkscoutshop.org.hk/">童軍物品供應社</a>）</li>
         <li>船藝 · 初版（僅實體版，<a href="https://www.hkscoutshop.org.hk/">童軍物品供應社</a>）</li>
       </ul>
     </div>
   </details>
   <h3>露營技能</h3>
-  <p class="sas-ebook-hint"><a href="https://sites.google.com/scouting.org.hk/sascampcraft2nd">《露營技能》第2版網上版</a></p>
+  <p class="sas-ebook-hint"><a href="https://sites.google.com/scouting.org.hk/sascampcraft2nd/%E9%9B%BB%E5%AD%90%E6%9B%B8">《露營技能》第2版網上版</a></p>
   <ul>
     <li><a href="https://www2.sas.org.hk/campcraftlevel1/">第一級課程範圍</a></li>
     <li><a href="https://www2.sas.org.hk/campcraftlevel2/">第二級課程範圍</a></li>
     <li><a href="https://www2.sas.org.hk/campcraftlevel3/">第三級課程範圍</a></li>
   </ul>
   <h3>登山技能</h3>
-  <p class="sas-ebook-hint"><a href="https://sites.google.com/scouting.org.hk/sasmountaineering3rd">《登山技能》第3版網上版</a></p>
+  <p class="sas-ebook-hint"><a href="https://sites.google.com/scouting.org.hk/sasmountaineering3rd/%E9%9B%BB%E5%AD%90%E6%9B%B8">《登山技能》第3版網上版</a></p>
   <ul>
     <li><a href="https://www2.sas.org.hk/c_mountaineering_level1/">第一級課程範圍</a></li>
     <li><a href="https://www2.sas.org.hk/c_mountaineering_level2/">第二級課程範圍</a></li>
@@ -962,10 +602,10 @@
     <li><a href="https://www2.sas.org.hk/knotting_indexc">C 級繩結列表</a></li>
     <li><a href="https://sites.google.com/scouting.org.hk/sasknotting/%E9%9B%BB%E5%AD%90%E6%9B%B8">《繩結》第2版網上版（訓練署）</a></li>
     <li><a href="https://sites.google.com/scouting.org.hk/sasknotting/%E5%88%86%E7%AB%A0%E9%96%B1%E8%AE%80">《繩結》分章閱讀</a></li>
-    <li><a href="#knots-steps">本頁分步圖（六基本結等）</a></li>
+    <li><a href="documents-knots.html#knots-steps">繩結專頁分步圖（六基本結等）</a></li>
   </ul>
   <h3>先鋒工程</h3>
-  <p class="sas-ebook-hint"><a href="https://sites.google.com/scouting.org.hk/saspioneering4">《先鋒工程》第4版網上版</a></p>
+  <p class="sas-ebook-hint"><a href="https://sites.google.com/scouting.org.hk/saspioneering4/%E9%9B%BB%E5%AD%90%E6%9B%B8">《先鋒工程》第4版網上版</a></p>
   <ul>
     <li><a href="https://www2.sas.org.hk/c_pioneering_level1/">第一級課程範圍</a></li>
     <li><a href="https://www2.sas.org.hk/c_pioneering_level2/">第二級課程範圍</a></li>
@@ -1068,7 +708,7 @@
   </ul>
 
   <h2 id="legacy">本網歷史檔案</h2>
-  <p>早年校網童軍頁嘅文件同舊照，已搬返本旅網站。舊校網目錄唔再對外連結；領袖電郵、舊申請表、過期綱要唔放上來。</p>
+  <p>以下是本旅保存的舊文件同舊照入口。</p>
   <ul>
     <li><a href="record.html">歷史回顧</a></li>
     <li><a href="record.html#legacy-archive">舊照選輯</a></li>
@@ -1127,7 +767,7 @@
   <p class="copy">© 2026 荃灣第二十四旅童軍 24th Tsuen Wan Group, Scout Association of Hong Kong</p>
   <p class="copy">本網站的相片只供瀏覽。如要轉載相片、放上網絡、作商業用途，或作超出一般私人用途的使用，請先電郵 <a href="mailto:info@24twg.org">info@24twg.org</a> 詢問。未獲同意而使用，本旅會要求立即刪除，並保留追究的權利。</p>
 </footer>
-<script src="js/site-extras.js?v=8"></script>
-<script src="js/nav.js?v=7"></script>
+<script src="js/site-extras.js?v=9"></script>
+<script src="js/nav.js?v=8"></script>
 </body>
 </html>
