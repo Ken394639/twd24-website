@@ -1257,13 +1257,14 @@ main > .intro + .page > h2:first-child {
   gap: 8px;
   margin: 0 0 16px;
 }
-.activity-mosaic a { display: block; color: inherit; text-decoration: none; }
+.activity-mosaic a { display: block; color: inherit; text-decoration: none; cursor: pointer; }
 .activity-mosaic img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   object-position: center;
   display: block;
+  cursor: pointer;
 }
 .activity-mosaic span { display: block; font-weight: 700; font-size: 14px; padding: 4px 2px 0; }
 .shot-link { position: relative; display: block; color: inherit; text-decoration: none; }

@@ -360,6 +360,8 @@ document.addEventListener("click", (event) => {
   const button = event.target.closest("button.zoom");
   const img = button ? button.querySelector("img") : event.target.closest("img");
   if (!img || img.closest("header")) return;
+  // Mosaic tiles are category links — follow href, do not zoom.
+  if (img.closest(".activity-mosaic")) return;
   event.preventDefault();
   openZoom(img);
 });
