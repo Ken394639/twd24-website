@@ -3,7 +3,7 @@ window.TWG_POSTERS = [
     "id": "midautumn-2026",
     "code": "DdsqUI-FPp7",
     "title": "中秋節快樂",
-    "cat": "gathering",
+    "cat": "party",
     "href": "https://www.instagram.com/24twg/p/DdsqUI-FPp7/",
     "files": [
       "midautumn-2026.jpg"
@@ -13,7 +13,7 @@ window.TWG_POSTERS = [
     "id": "parade-2026",
     "code": "DfL9v7Kk-d5",
     "title": "童軍大會操2026",
-    "cat": "gathering",
+    "cat": "rally",
     "href": "https://www.instagram.com/24twg/p/DfL9v7Kk-d5/",
     "files": [
       "parade-2026.jpg",
@@ -54,7 +54,7 @@ window.TWG_POSTERS = [
     "id": "cny-horse-2026",
     "code": "DU0yV-dFYKs",
     "title": "2026馬到功成",
-    "cat": "gathering",
+    "cat": "party",
     "href": "https://www.instagram.com/24twg/p/DU0yV-dFYKs/",
     "files": [
       "cny-horse-2026.jpg"
@@ -64,7 +64,7 @@ window.TWG_POSTERS = [
     "id": "cny-gather-2026",
     "code": "DVBKS1zmKEx",
     "title": "馬年新春團拜",
-    "cat": "gathering",
+    "cat": "party",
     "href": "https://www.instagram.com/24twg/p/DVBKS1zmKEx/",
     "files": [
       "cny-gather-2026.jpg"
@@ -74,7 +74,7 @@ window.TWG_POSTERS = [
     "id": "xmas-2025",
     "code": "DSq6sfXAYHf",
     "title": "聖誕快樂",
-    "cat": "gathering",
+    "cat": "party",
     "href": "https://www.instagram.com/24twg/p/DSq6sfXAYHf/",
     "files": [
       "xmas-2025.jpg"
@@ -84,7 +84,7 @@ window.TWG_POSTERS = [
     "id": "40th-dinner",
     "code": "DUvM-SwD2Uy",
     "title": "四十周年旅慶晚宴",
-    "cat": "gathering",
+    "cat": "ceremony",
     "href": "https://www.instagram.com/24twg/p/DUvM-SwD2Uy/",
     "files": [
       "40th-dinner.jpg"
@@ -94,7 +94,7 @@ window.TWG_POSTERS = [
     "id": "ns-carnival-2026",
     "code": "DW_vAf5mErD",
     "title": "115周年軍樂匯演嘉年華",
-    "cat": "gathering",
+    "cat": "ceremony",
     "href": "https://www.instagram.com/24twg/p/DW_vAf5mErD/",
     "files": [
       "ns-carnival-2026.jpg",
@@ -117,7 +117,7 @@ window.TWG_POSTERS = [
     "id": "parade-2025",
     "code": "DQQsOZakyFs",
     "title": "童軍大會操2025",
-    "cat": "gathering",
+    "cat": "rally",
     "href": "https://www.instagram.com/24twg/p/DQQsOZakyFs/",
     "files": [
       "parade-2025.jpg",
@@ -203,7 +203,7 @@ window.TWG_POSTERS = [
     "id": "oath-2026",
     "code": "DTUHVpmjeyE",
     "title": "戶外團集會暨宣誓禮",
-    "cat": "gathering",
+    "cat": "ceremony",
     "href": "https://www.instagram.com/24twg/p/DTUHVpmjeyE/",
     "files": [
       "oath-2026.jpg",
@@ -227,7 +227,7 @@ window.TWG_POSTERS = [
     "id": "bbq-2026",
     "code": "DUDbj3yj_9F",
     "title": "聯團BBQ",
-    "cat": "gathering",
+    "cat": "party",
     "href": "https://www.instagram.com/24twg/p/DUDbj3yj_9F/",
     "files": [
       "bbq-2026.jpg"
@@ -247,7 +247,7 @@ window.TWG_POSTERS = [
     "id": "sedan-2025",
     "code": "DJeKvPxhEnS",
     "title": "集會日常轎子",
-    "cat": "gathering",
+    "cat": "meeting",
     "href": "https://www.instagram.com/24twg/p/DJeKvPxhEnS/",
     "files": [
       "sedan-2025.jpg"

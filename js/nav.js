@@ -217,6 +217,7 @@ if (filterBar) {
   });
   let fromHash = location.hash.replace("#", "");
   if (fromHash === "fight") fromHash = "water";
+  if (fromHash === "gathering") fromHash = "meeting";
   category = known.has(fromHash) ? fromHash : "all";
   apply();
   pin();
@@ -225,6 +226,7 @@ if (filterBar) {
   window.addEventListener("hashchange", () => {
     let name = location.hash.replace("#", "");
     if (name === "fight") name = "water";
+    if (name === "gathering") name = "meeting";
     if (!known.has(name) || name === category) return;
     category = name;
     apply();

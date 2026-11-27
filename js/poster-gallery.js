@@ -6,6 +6,10 @@
 
   var CAT_LABEL = {
     gathering: "集會與節日",
+    rally: "大會操",
+    ceremony: "宣誓與典禮",
+    party: "聯歡",
+    meeting: "常規集會",
     contest: "比賽",
     training: "訓練",
     camp: "營地",

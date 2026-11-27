@@ -393,7 +393,8 @@ a:hover { text-decoration: underline; }
   height: auto;
   display: block;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   background: #f3f3f3;
 }
 .legacy-thumbs figcaption {

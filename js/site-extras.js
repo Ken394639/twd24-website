@@ -9,7 +9,10 @@
     water: "images/act-water.jpg",
     fight: "images/act-water.jpg",
     travel: "images/act-travel.jpg",
-    gathering: "images/act-bbq.jpg",
+    rally: "images/social/posters/parade-2026.jpg",
+    ceremony: "images/album-covers/72177720330113159.jpg",
+    party: "images/act-bbq.jpg",
+    meeting: "images/hero.jpg",
     other: "images/hero.jpg",
   };
 
